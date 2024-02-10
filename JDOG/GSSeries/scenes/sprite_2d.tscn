@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ih56fdqfu37"]
+
+[ext_resource type="Texture2D" uid="uid://esrvog7f43ol" path="res://assets/zomboi_257.png" id="1_bdj1u"]
+[ext_resource type="Script" path="res://scenes/sprite_2d.gd" id="2_jyahg"]
+
+[node name="Sprite2D_zomboi" type="Sprite2D"]
+position = Vector2(527, 293)
+texture = ExtResource("1_bdj1u")
+script = ExtResource("2_jyahg")
