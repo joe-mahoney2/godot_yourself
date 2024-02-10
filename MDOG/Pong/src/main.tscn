@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw8dxmivwdkp2"]
+
+[ext_resource type="Script" path="res://src/bg.gd" id="1_c7860"]
+[ext_resource type="Script" path="res://src/exitButton.gd" id="1_gxpcj"]
+[ext_resource type="Script" path="res://src/playButton.gd" id="1_qc654"]
+[ext_resource type="Texture2D" uid="uid://dpj2kq68dlt6u" path="res://assets/back.png" id="2_phky6"]
+
+[node name="main" type="Node2D"]
+
+[node name="parallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_c7860")
+
+[node name="parallaxLayer" type="ParallaxLayer" parent="parallaxBackground"]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="parallaxImage" type="Sprite2D" parent="parallaxBackground/parallaxLayer"]
+position = Vector2(0, -96)
+scale = Vector2(0.320833, 0.344444)
+texture = ExtResource("2_phky6")
+centered = false
+
+[node name="title" type="RichTextLabel" parent="."]
+offset_left = 393.0
+offset_top = 64.0
+offset_right = 761.0
+offset_bottom = 136.0
+bbcode_enabled = true
+text = "[center][wave][font_size={48px}][color=#94167f]P[/color][color=#ff901f]O[/color][color=#e93479]N[/color][color=#f9ac53]G[/color][/font_size][/wave][/center]"
+
+[node name="playButton" type="Button" parent="."]
+offset_left = 456.0
+offset_top = 216.0
+offset_right = 693.0
+offset_bottom = 274.0
+text = "Play"
+script = ExtResource("1_qc654")
+
+[node name="exitButton" type="Button" parent="."]
+offset_left = 456.0
+offset_top = 360.0
+offset_right = 693.0
+offset_bottom = 418.0
+text = "Exit"
+script = ExtResource("1_gxpcj")
+
+[connection signal="pressed" from="playButton" to="exitButton" method="_on_play_button_pressed"]
+[connection signal="pressed" from="playButton" to="playButton" method="_on_pressed"]
+[connection signal="pressed" from="exitButton" to="exitButton" method="_on_pressed"]
