@@ -14,35 +14,35 @@ script = ExtResource("1_c7860")
 motion_mirroring = Vector2(1152, 0)
 
 [node name="parallaxImage" type="Sprite2D" parent="parallaxBackground/parallaxLayer"]
-position = Vector2(0, -96)
-scale = Vector2(0.320833, 0.344444)
+position = Vector2(0, -102)
+scale = Vector2(0.320833, 0.379167)
 texture = ExtResource("2_phky6")
 centered = false
 
 [node name="title" type="RichTextLabel" parent="."]
-offset_left = 393.0
-offset_top = 64.0
-offset_right = 761.0
-offset_bottom = 136.0
+offset_left = 474.0
+offset_top = 126.0
+offset_right = 842.0
+offset_bottom = 198.0
 bbcode_enabled = true
 text = "[center][wave][font_size={48px}][color=#94167f]P[/color][color=#ff901f]O[/color][color=#e93479]N[/color][color=#f9ac53]G[/color][/font_size][/wave][/center]"
 
 [node name="playButton" type="Button" parent="."]
-offset_left = 456.0
-offset_top = 216.0
-offset_right = 693.0
-offset_bottom = 274.0
+offset_left = 537.0
+offset_top = 278.0
+offset_right = 774.0
+offset_bottom = 336.0
 text = "Play"
 script = ExtResource("1_qc654")
 
 [node name="exitButton" type="Button" parent="."]
-offset_left = 456.0
-offset_top = 360.0
-offset_right = 693.0
-offset_bottom = 418.0
+offset_left = 537.0
+offset_top = 422.0
+offset_right = 774.0
+offset_bottom = 480.0
 text = "Exit"
 script = ExtResource("1_gxpcj")
 
-[connection signal="pressed" from="playButton" to="exitButton" method="_on_play_button_pressed"]
 [connection signal="pressed" from="playButton" to="playButton" method="_on_pressed"]
+[connection signal="pressed" from="playButton" to="exitButton" method="_on_play_button_pressed"]
 [connection signal="pressed" from="exitButton" to="exitButton" method="_on_pressed"]

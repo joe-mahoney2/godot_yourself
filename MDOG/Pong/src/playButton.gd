@@ -15,4 +15,4 @@ extends Button
 func _on_pressed():
 	# The player pressed the play button so switch to the gameBoard
 	# scene and start the game
-	get_tree().change_scene_to_file("res://src/gameBoard.tscn")
+	get_tree().change_scene_to_file("res://src/game_screen.tscn")
