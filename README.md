@@ -2,9 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Godot Engine](https://img.shields.io/badge/Godot-3.3-orange)](https://godotengine.org/)
-[![GitHub issues](https://img.shields.io/github/issues/your-username/godot_yourself)](https://github.com/your-username/godot_yourself/issues)
-[![GitHub forks](https://img.shields.io/github/forks/your-username/godot_yourself)](https://github.com/your-username/godot_yourself/network)
-[![GitHub stars](https://img.shields.io/github/stars/your-username/godot_yourself)](https://github.com/your-username/godot_yourself/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/joe-mahoney2/godot_yourself)](https://github.com/joe-mahoney2/godot_yourself/issues)
+[![GitHub forks](https://img.shields.io/github/forks/joe-mahoney2/godot_yourself)](https://github.com/joe-mahoney2/godot_yourself/network)
+[![GitHub stars](https://img.shields.io/github/stars/joe-mahoney2/godot_yourself)](https://github.com/joe-mahoney2/godot_yourself/stargazers)
 
 Welcome to the **Godot Yourself** repository! This is where you'll find the initial test games created by our talented authors: Joe Mahoney, Mason McDaniel, Ricardo Mendez, and Samuel Hoekwater.
 
