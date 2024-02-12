@@ -1,1 +1,11 @@
+AnimationPlayer
+AnimatedSprite2D
+TextureRect
+Sprite2D
+ParallaxLayer
+ParallaxBackground
+Node
+Camera2D
+Button
+Node2D
 Label

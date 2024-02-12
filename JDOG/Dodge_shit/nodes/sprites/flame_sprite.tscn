@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://r1l1krfyi23l"]
+
+[ext_resource type="Texture2D" uid="uid://ccivfuqbbpyti" path="res://assets/flame_sprite-Sheet.png" id="1_eojug"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx2lg"]
+atlas = ExtResource("1_eojug")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u84em"]
+atlas = ExtResource("1_eojug")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5i4l"]
+atlas = ExtResource("1_eojug")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yfyv"]
+atlas = ExtResource("1_eojug")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2d14i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx2lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u84em")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5i4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yfyv")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}]
+
+[node name="FlameSprite" type="AnimatedSprite2D"]
+position = Vector2(66, 68)
+sprite_frames = SubResource("SpriteFrames_2d14i")
+animation = &"move_right"
+autoplay = "move_right"

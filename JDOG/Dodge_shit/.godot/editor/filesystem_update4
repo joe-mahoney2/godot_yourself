@@ -1,1 +1,6 @@
 res://scenes/label.tscn
+res://nodes/main.tscn
+res://scenes/main.tscn
+res://scenes/parallax/parallax_main.tscn
+res://nodes/sprites/flame_sprite.tscn
+res://nodes/sprites/flame_sprite.gd

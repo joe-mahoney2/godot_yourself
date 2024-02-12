@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://1635vv73j7cc"]
+
+[ext_resource type="PackedScene" uid="uid://kfkxnygf6r7b" path="res://scenes/parallax/parallax_main.tscn" id="1_mhhpr"]
+[ext_resource type="PackedScene" uid="uid://r1l1krfyi23l" path="res://nodes/sprites/flame_sprite.tscn" id="2_7ttdg"]
+[ext_resource type="Script" path="res://nodes/sprites/flame_sprite.gd" id="3_axnfh"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 327)
+
+[node name="ParallaxMain" parent="." instance=ExtResource("1_mhhpr")]
+
+[node name="FlameSprite" parent="." instance=ExtResource("2_7ttdg")]
+position = Vector2(95, 484)
+script = ExtResource("3_axnfh")

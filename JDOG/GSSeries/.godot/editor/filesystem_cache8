@@ -1,4 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1707601841
-::res://assets/::1707601850
+::res://::1707687536
+::res://assets/::1707688010
+flame_sprite-Sheet.png::CompressedTexture2D::7819149065365782375::1707686752::1707688039::1::::<><>::
+shity_mountains.png::CompressedTexture2D::2334536011349561963::1707687966::1707688039::1::::<><>::
 zomboi_257.png::CompressedTexture2D::318984610731754639::1706575250::1707601854::1::::<><>::
+::res://scenes/::1707687345
+node_2d_title.tscn::PackedScene::5681252530860818122::1707687345::0::1::::<><>::uid://0ih56fdqfu37::::res://scenes/sprite_2d.tscn
+sprite_2d.gd::GDScript::-1::1707685371::0::1::::<>Sprite2D<>::
+sprite_2d.tscn::PackedScene::1771716341855584752::1707687071::0::1::::<><>::uid://esrvog7f43ol::::res://assets/zomboi_257.png<>res://scenes/sprite_2d.gd
