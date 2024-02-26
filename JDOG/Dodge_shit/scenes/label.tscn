@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://d338qf51g30cl"]
-
-[node name="Label" type="Label"]
-offset_left = 349.0
-offset_top = 211.0
-offset_right = 960.0
-offset_bottom = 493.0
-scale = Vector2(1.27512, 1.09437)
-text = "Hello Joe"

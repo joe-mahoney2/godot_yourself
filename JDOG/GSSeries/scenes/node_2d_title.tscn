@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm7bntn4xh6ju"]
+
+[ext_resource type="PackedScene" uid="uid://0ih56fdqfu37" path="res://scenes/sprite_2d.tscn" id="1_cnoq4"]
+[ext_resource type="Texture2D" uid="uid://8i4p45a6m0qx" path="res://assets/shity_mountains.png" id="2_q67uu"]
+
+[node name="Node2D_Title" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 78.0
+offset_top = 47.0
+offset_right = 330.0
+offset_bottom = 164.0
+toggle_mode = true
+text = "Motion Toggle
+"
+
+[node name="Sprite2D_zomboi" parent="." instance=ExtResource("1_cnoq4")]
+position = Vector2(618, 335)
+
+[node name="epic_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+process_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(526, 127)
+texture = ExtResource("2_q67uu")
+
+[connection signal="toggled" from="Button" to="Sprite2D_zomboi" method="_on_button_toggled"]
+[connection signal="damage" from="Sprite2D_zomboi" to="Sprite2D_zomboi" method="_on_damage"]
+[connection signal="timeout" from="epic_timer" to="Sprite2D_zomboi" method="_on_epic_timer_timeout"]

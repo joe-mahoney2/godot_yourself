@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://bonc37sj2rnyx"]
+
+[ext_resource type="Script" path="res://nodes/sprites/water_sprite.gd" id="1_060a3"]
+[ext_resource type="Texture2D" uid="uid://dp07gkm1tvhkc" path="res://assets/water_sprite-Sheet.png" id="1_d08cc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml8va"]
+atlas = ExtResource("1_d08cc")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffv35"]
+atlas = ExtResource("1_d08cc")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dapx1"]
+atlas = ExtResource("1_d08cc")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20vgc"]
+atlas = ExtResource("1_d08cc")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8sn36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml8va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffv35")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dapx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20vgc")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}]
+
+[node name="water_sprite" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8sn36")
+animation = &"move_right"
+autoplay = "move_right"
+script = ExtResource("1_060a3")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://kfkxnygf6r7b"]
+
+[ext_resource type="Texture2D" uid="uid://bpwykjavoq1lt" path="res://assets/zomboi_sword_256.png" id="1_chu7p"]
+
+[node name="ParallaxMain" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(512, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(195, 196)
+scale = Vector2(1.51786, 1.52098)
+texture = ExtResource("1_chu7p")

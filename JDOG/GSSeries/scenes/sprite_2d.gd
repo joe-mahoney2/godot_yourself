@@ -2,11 +2,14 @@ extends Sprite2D
 
 var speed = 400
 var angular_speed = PI
+var enable = 0
+var time
 
+signal damage(damage,hp)
+	
 func _init():
 	print("if your reading this your gay")
 	
-
 func _process(delta):
 	#rotation += angular_speed  * delta
 	#
@@ -19,7 +22,6 @@ func _process(delta):
 		direction = 1
 	rotation += angular_speed * direction * delta
 
-
 	var velocity = Vector2.ZERO
 	
 	if Input.is_action_pressed("ui_up"):
@@ -27,4 +29,19 @@ func _process(delta):
 	if Input.is_action_pressed("ui_down"):
 		velocity = Vector2.UP.rotated(rotation) * (-1.0) * speed
 
-	position += velocity * delta
+	if(enable):
+		position += velocity * delta
+
+func _on_button_toggled(toggled_on):
+	enable^=1
+	print(enable)
+
+func _on_epic_timer_timeout():
+	damage.emit(5,5)
+	print("epic timer timeout\n")
+
+
+func _on_damage(damage, hp):
+	print("periodic damage bitch")
+	
+
