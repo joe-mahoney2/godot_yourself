@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cwmetyw7a4g4c" path="res://assets/Paddle.png" id="1_bewh8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jknyf"]
-size = Vector2(29, 122)
+size = Vector2(28, 121.49)
 
 [node name="opposition" type="CharacterBody2D"]
 metadata/_edit_group_ = true
@@ -12,5 +12,5 @@ metadata/_edit_group_ = true
 texture = ExtResource("1_bewh8")
 
 [node name="paddleCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 0)
+position = Vector2(-1, 0.255001)
 shape = SubResource("RectangleShape2D_jknyf")

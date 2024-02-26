@@ -9,7 +9,7 @@ extends CharacterBody2D
 ##                                               ##
 ## --------------------------------------------- ##
 
-@export var speed = 300
+@export var speed = 700
 
 func _ready():
 	# Randomly set the velocity of the ball so it goes in a random direction
@@ -22,4 +22,3 @@ func _physics_process(delta):
 	var collision_object = move_and_collide(velocity * speed * delta)
 	if collision_object:
 		velocity = velocity.bounce(collision_object.get_normal())
-
