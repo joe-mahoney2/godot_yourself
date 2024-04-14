@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://dydhwdghbmqku"]
+
+[ext_resource type="Texture2D" uid="uid://dikbvfcj10hld" path="res://sprites/sprite_sheets/water_sprite-Sheet.png" id="1_cvmo5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkac7"]
+atlas = ExtResource("1_cvmo5")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87k4n"]
+atlas = ExtResource("1_cvmo5")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebr7x"]
+atlas = ExtResource("1_cvmo5")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dv50g"]
+atlas = ExtResource("1_cvmo5")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8dtmg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkac7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87k4n")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebr7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dv50g")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="water_sprite" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_8dtmg")
+animation = &"left"
+autoplay = "left"
+frame_progress = 0.716378
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]

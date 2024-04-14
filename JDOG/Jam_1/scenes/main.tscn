@@ -1,7 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwvq0db71tnjr"]
+[gd_scene load_steps=4 format=3 uid="uid://bwvq0db71tnjr"]
 
 [ext_resource type="PackedScene" uid="uid://cubinirmnmwk2" path="res://tile_maps/tile_map_0.tscn" id="1_8svja"]
+[ext_resource type="PackedScene" uid="uid://qj0vx0nh0e10" path="res://sprites/flame_sprite.tscn" id="2_biq0f"]
+[ext_resource type="PackedScene" uid="uid://dydhwdghbmqku" path="res://sprites/water_sprite.tscn" id="3_s6ldj"]
 
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_8svja")]
+
+[node name="flame_sprite" parent="." instance=ExtResource("2_biq0f")]
+position = Vector2(85, 115)
+
+[node name="water_sprite" parent="." instance=ExtResource("3_s6ldj")]
+position = Vector2(-103, 70)
