@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dikbvfcj10hld"
-path="res://.godot/imported/water_sprite-Sheet.png-bb7d0126b8026de4dfc6bb5d5b7d2929.ctex"
+uid="uid://dsn8qjro8yrw2"
+path="res://.godot/imported/flame_sprite-Sheet.png-80ec9132e0cdfc12267db3de0342d386.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sprite_sheets/water_sprite-Sheet.png"
-dest_files=["res://.godot/imported/water_sprite-Sheet.png-bb7d0126b8026de4dfc6bb5d5b7d2929.ctex"]
+source_file="res://sprites/assets/flame_sprite-Sheet.png"
+dest_files=["res://.godot/imported/flame_sprite-Sheet.png-80ec9132e0cdfc12267db3de0342d386.ctex"]
 
 [params]
 

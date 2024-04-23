@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8f16jpgfihon"]
+[gd_scene load_steps=9 format=3 uid="uid://c8f16jpgfihon"]
 
 [ext_resource type="Texture2D" uid="uid://dikbvfcj10hld" path="res://sprites/assets/water_sprite-Sheet.png" id="1_vx7cd"]
 [ext_resource type="Script" path="res://sprites/water_sprite.gd" id="2_vogtk"]
@@ -56,22 +56,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aeldp"]
-radius = 49.0
-height = 108.0
-
 [node name="water_sprite" type="CharacterBody2D"]
-top_level = true
-scale = Vector2(0.3, 0.3)
 script = ExtResource("2_vogtk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ygyuy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 19)
-shape = SubResource("CapsuleShape2D_aeldp")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.04, 1.04)

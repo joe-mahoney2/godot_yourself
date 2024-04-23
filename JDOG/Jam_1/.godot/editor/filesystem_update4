@@ -1,9 +1,3 @@
-res://tile_maps/tile_map_0.tscn
-res://sprites/water_sprite_cp.tscn
-res://sprites/water_sprite.tscn
-res://scenes/main.tscn
-res://sprites/player.gd
-res://sprites/flame_sprite.tscn
-res://sprites/flame_sprite.gd
+res://sprites/boob_man.tscn
 res://sprites/water_sprite.gd
-res://sprites/water_body.gd
+res://scenes/main.tscn

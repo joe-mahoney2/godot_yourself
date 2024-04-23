@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsn8qjro8yrw2"
-path="res://.godot/imported/flame_sprite-Sheet.png-8cdef37280f61bd3d7446cc040b40857.ctex"
+uid="uid://dy7in6budfy7h"
+path="res://.godot/imported/red_sword_dude.png-b6c7aa2b326a0ec4bf36fc2d967785d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sprite_sheets/flame_sprite-Sheet.png"
-dest_files=["res://.godot/imported/flame_sprite-Sheet.png-8cdef37280f61bd3d7446cc040b40857.ctex"]
+source_file="res://sprites/assets/red_sword_dude.png"
+dest_files=["res://.godot/imported/red_sword_dude.png-b6c7aa2b326a0ec4bf36fc2d967785d2.ctex"]
 
 [params]
 
