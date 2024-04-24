@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bpeakv8dgmojk"]
+[gd_scene load_steps=64 format=3 uid="uid://bpeakv8dgmojk"]
 
 [ext_resource type="Script" path="res://src/game_screen.gd" id="1_3ovwf"]
 [ext_resource type="PackedScene" uid="uid://bihngeu0wruef" path="res://src/player_1.tscn" id="1_5il0t"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://src/opposition.gd" id="4_7y3h3"]
 [ext_resource type="PackedScene" uid="uid://dp502waes0x26" path="res://src/ball.tscn" id="4_21eca"]
 [ext_resource type="Script" path="res://src/ball.gd" id="5_jitue"]
+[ext_resource type="FontFile" uid="uid://bf6od20bkkasu" path="res://assets/RETROTECH.ttf" id="10_h4lu4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fca7p"]
 atlas = ExtResource("2_j1sq6")
@@ -411,6 +412,7 @@ shape = SubResource("RectangleShape2D_o8eyu")
 position = Vector2(640, 368)
 slide_on_ceiling = false
 platform_on_leave = 2
+safe_margin = 6.729
 script = ExtResource("5_jitue")
 
 [node name="bottomWall" type="StaticBody2D" parent="."]
@@ -426,16 +428,23 @@ position = Vector2(-25, 360)
 shape = SubResource("RectangleShape2D_1te8n")
 
 [node name="playerScore" type="RichTextLabel" parent="."]
-offset_left = 187.0
-offset_top = 1.0
-offset_right = 360.0
-offset_bottom = 154.0
+offset_left = 304.0
+offset_top = 16.0
+offset_right = 416.0
+offset_bottom = 80.0
+theme_override_fonts/normal_font = ExtResource("10_h4lu4")
+theme_override_font_sizes/normal_font_size = 71
+bbcode_enabled = true
+text = "1"
 
 [node name="oppositionScore" type="RichTextLabel" parent="."]
-offset_left = 912.0
-offset_top = 1.0
-offset_right = 1037.0
-offset_bottom = 69.0
+offset_left = 944.0
+offset_top = 16.0
+offset_right = 1069.0
+offset_bottom = 84.0
+theme_override_fonts/normal_font = ExtResource("10_h4lu4")
+theme_override_font_sizes/normal_font_size = 71
+text = "1"
 
 [node name="rightGoal" type="Area2D" parent="."]
 

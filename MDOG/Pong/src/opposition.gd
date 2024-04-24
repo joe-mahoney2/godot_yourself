@@ -22,9 +22,12 @@ func _physics_process(delta):
 func get_opponent_direction():
 	if abs(ball.position.y - position.y) > 25:
 		# The ball is below the opponent
-		if ball.position.y > position.y: return 1
+		if ball.position.y > position.y:
+			return 1
 		# The ball is above the opponent
-		else: return -1
+		else: 
+			return -1
 	else:
 		return 0
+		
 
