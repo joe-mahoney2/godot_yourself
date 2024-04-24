@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwvq0db71tnjr"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_63rtu"]
+[ext_resource type="PackedScene" uid="uid://bymlheqr8sc4k" path="res://tile_maps/tile_map.tscn" id="2_tiued"]
+[ext_resource type="PackedScene" uid="uid://b4tf0tk87v83h" path="res://sprites/boob_man.tscn" id="3_s0lcr"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_63rtu")
+
+[node name="TileMap" parent="." instance=ExtResource("2_tiued")]
+position = Vector2(536, 297)
+
+[node name="Boob_man" parent="." instance=ExtResource("3_s0lcr")]
+position = Vector2(620, 397)

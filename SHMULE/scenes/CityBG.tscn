@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://bug8ug8qn8rb2"]
+
+[ext_resource type="Script" path="res://scenes/scripts/CityBG.gd" id="1_g6pbi"]
+[ext_resource type="Texture2D" uid="uid://bmii8860f3wlm" path="res://graphics/free-city-backgrounds-pixel-art/city 1/1.png" id="1_k3wwg"]
+[ext_resource type="Texture2D" uid="uid://2ela8houhr5p" path="res://graphics/free-city-backgrounds-pixel-art/city 1/2.png" id="2_7xohd"]
+[ext_resource type="Texture2D" uid="uid://c7aj4bq0rhauj" path="res://graphics/free-city-backgrounds-pixel-art/city 1/3.png" id="3_m6aip"]
+[ext_resource type="Texture2D" uid="uid://cdetv6k5kqs0h" path="res://graphics/free-city-backgrounds-pixel-art/city 1/4.png" id="4_f2taw"]
+[ext_resource type="Texture2D" uid="uid://dp6c5i4imnlb" path="res://graphics/free-city-backgrounds-pixel-art/city 1/5.png" id="5_fnslu"]
+
+[node name="CityBG" type="ParallaxBackground"]
+script = ExtResource("1_g6pbi")
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="NightSky" type="Sprite2D" parent="Sky"]
+position = Vector2(584, 336)
+scale = Vector2(2.01389, 2.08025)
+texture = ExtResource("1_k3wwg")
+metadata/_edit_lock_ = true
+
+[node name="FarBuildings" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.35, 0.35)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="FarBuildings" type="Sprite2D" parent="FarBuildings"]
+position = Vector2(336, 328.5)
+scale = Vector2(1.11111, 1.08951)
+texture = ExtResource("2_7xohd")
+
+[node name="FarBuildings2" type="Sprite2D" parent="FarBuildings"]
+position = Vector2(976, 328.5)
+scale = Vector2(1.11111, 1.08951)
+texture = ExtResource("2_7xohd")
+
+[node name="CloserBuildings" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1320, 0)
+
+[node name="CloserBuildings" type="Sprite2D" parent="CloserBuildings"]
+position = Vector2(304, 369)
+scale = Vector2(1.22222, 1.43827)
+texture = ExtResource("3_m6aip")
+
+[node name="CloserBuildings2" type="Sprite2D" parent="CloserBuildings"]
+position = Vector2(984, 369)
+scale = Vector2(1.22222, 1.43827)
+texture = ExtResource("3_m6aip")
+
+[node name="EvenCloser" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.85, 0)
+motion_mirroring = Vector2(1336, 0)
+
+[node name="4" type="Sprite2D" parent="EvenCloser"]
+position = Vector2(352, 361)
+scale = Vector2(1.19444, 1.29012)
+texture = ExtResource("4_f2taw")
+
+[node name="5" type="Sprite2D" parent="EvenCloser"]
+position = Vector2(1024, 361)
+scale = Vector2(1.19444, 1.29012)
+texture = ExtResource("4_f2taw")
+
+[node name="RealClose" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.95, 0.95)
+motion_mirroring = Vector2(1501, 0)
+
+[node name="5" type="Sprite2D" parent="RealClose"]
+position = Vector2(356, 361)
+scale = Vector2(1.389, 1.67)
+texture = ExtResource("5_fnslu")
+
+[node name="6" type="Sprite2D" parent="RealClose"]
+position = Vector2(1104, 360)
+scale = Vector2(1.389, 1.67)
+texture = ExtResource("5_fnslu")
