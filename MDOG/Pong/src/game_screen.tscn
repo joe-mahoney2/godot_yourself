@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bpeakv8dgmojk"]
+[gd_scene load_steps=65 format=3 uid="uid://bpeakv8dgmojk"]
 
 [ext_resource type="Script" path="res://src/game_screen.gd" id="1_3ovwf"]
 [ext_resource type="PackedScene" uid="uid://bihngeu0wruef" path="res://src/player_1.tscn" id="1_5il0t"]
@@ -369,6 +369,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sgcj0"]
+radius = 144.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8eyu"]
 size = Vector2(1280, 20)
 
@@ -393,16 +396,20 @@ scale = Vector2(2.87, 2.28)
 sprite_frames = SubResource("SpriteFrames_k5di6")
 frame_progress = 0.298841
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(640, 376)
+shape = SubResource("CircleShape2D_sgcj0")
+disabled = true
+
 [node name="player1" parent="." instance=ExtResource("1_5il0t")]
 position = Vector2(98, 368)
-slide_on_ceiling = false
-platform_wall_layers = 0
 
 [node name="opposition" parent="." instance=ExtResource("3_bf40x")]
 position = Vector2(1183, 368)
 script = ExtResource("4_7y3h3")
 
 [node name="topWall" type="StaticBody2D" parent="."]
+collision_layer = 2
 
 [node name="xwall" type="CollisionShape2D" parent="topWall"]
 position = Vector2(640, -10)
@@ -410,18 +417,20 @@ shape = SubResource("RectangleShape2D_o8eyu")
 
 [node name="ball" parent="." instance=ExtResource("4_21eca")]
 position = Vector2(640, 368)
+collision_mask = 3
 slide_on_ceiling = false
-platform_on_leave = 2
 safe_margin = 6.729
 script = ExtResource("5_jitue")
 
 [node name="bottomWall" type="StaticBody2D" parent="."]
+collision_layer = 2
 
 [node name="xwall" type="CollisionShape2D" parent="bottomWall"]
 position = Vector2(640, 730)
 shape = SubResource("RectangleShape2D_o8eyu")
 
 [node name="leftGoal" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="goalCollision" type="CollisionShape2D" parent="leftGoal"]
 position = Vector2(-25, 360)
@@ -435,7 +444,7 @@ offset_bottom = 80.0
 theme_override_fonts/normal_font = ExtResource("10_h4lu4")
 theme_override_font_sizes/normal_font_size = 71
 bbcode_enabled = true
-text = "1"
+text = "0"
 
 [node name="oppositionScore" type="RichTextLabel" parent="."]
 offset_left = 944.0
@@ -444,9 +453,10 @@ offset_right = 1069.0
 offset_bottom = 84.0
 theme_override_fonts/normal_font = ExtResource("10_h4lu4")
 theme_override_font_sizes/normal_font_size = 71
-text = "1"
+text = "0"
 
 [node name="rightGoal" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="goalCollision" type="CollisionShape2D" parent="rightGoal"]
 position = Vector2(1305, 360)

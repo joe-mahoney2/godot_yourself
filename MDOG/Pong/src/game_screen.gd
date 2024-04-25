@@ -13,15 +13,14 @@ extends Node
 @export var screenSizeX = 1280
 @export var screenSizeY = 720
 
-var playerScore = -2
-var oppositionScore = -2
+var playerScore = 0
+var oppositionScore = 0
 @onready var playerLabel = $playerScore
 @onready var oppositionLabel = $oppositionScore
 
 # Opposition scores
 func _on_left_goal_body_entered(body):
 	$ball.position = Vector2(screenSizeX / 2, screenSizeY / 2)
-	print("in func1")
 	oppositionScore+=1
 	oppositionLabel.text = str(oppositionScore)
 
@@ -29,6 +28,4 @@ func _on_left_goal_body_entered(body):
 func _on_right_goal_body_entered(body):
 	$ball.position = Vector2(screenSizeX / 2, screenSizeY / 2)
 	playerScore+=1
-	print("in func2")
-	# BUG: player score adds twice at game start for some reason
 	playerLabel.text = str(playerScore)

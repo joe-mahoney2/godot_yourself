@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends StaticBody2D
 ## --------------------------------------------- ##
 ## Original Developer : Mason McDaniel           ##
 ## Copyright          : Mason McDaniel 2024      ##
@@ -9,25 +9,33 @@ extends CharacterBody2D
 ##                                               ##
 ## --------------------------------------------- ##
 
-@export var speed = 10
+@export var speed = 500
 var ball
+var pHeight : int
+var ball_pos : Vector2
+var dist : int
+var move_by : int
+var win_height : int
 
 func _ready():
 	# Get the ball from the list child nodes of the gameScreen scene
 	ball = get_parent().find_child("ball")
+	win_height = get_viewport_rect().size.y
+	pHeight = $paddleCollision.get_shape().get_rect().size.y
 
-func _physics_process(delta):
-	move_and_collide(Vector2(0,get_opponent_direction()) * speed)
-
-func get_opponent_direction():
-	if abs(ball.position.y - position.y) > 25:
-		# The ball is below the opponent
-		if ball.position.y > position.y:
-			return 1
-		# The ball is above the opponent
-		else: 
-			return -1
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	#move paddle towards ball
+	ball_pos = $"../ball".position
+	dist = position.y - ball_pos.y
+	
+	if abs(dist) > speed * delta:
+		move_by = speed * delta * (dist / abs(dist))
 	else:
-		return 0
-		
+		move_by = dist
+
+	position.y -= move_by
+	
+	#limit paddle movement to window
+	position.y = clamp(position.y, pHeight / 2, win_height - pHeight / 2)
 
