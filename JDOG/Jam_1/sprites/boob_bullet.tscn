@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bckrantwovsta"]
+
+[ext_resource type="Texture2D" uid="uid://bedgqdjhguuyy" path="res://sprites/assets/boob_bullet-Sheet.png" id="1_abgt7"]
+[ext_resource type="Script" path="res://sprites/boob_bullet.gd" id="1_vo2wt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ms0w"]
+atlas = ExtResource("1_abgt7")
+region = Rect2(0, 0, 17, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yyd1e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ms0w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e55fh"]
+radius = 4.0
+
+[node name="boob_bullet" type="CharacterBody2D"]
+position = Vector2(26, 35)
+scale = Vector2(0.81, 0.81)
+collision_layer = 0
+collision_mask = 0
+slide_on_ceiling = false
+script = ExtResource("1_vo2wt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_yyd1e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e55fh")

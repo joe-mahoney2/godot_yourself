@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c8f16jpgfihon"]
 
 [ext_resource type="Texture2D" uid="uid://dikbvfcj10hld" path="res://sprites/assets/water_sprite-Sheet.png" id="1_vx7cd"]
-[ext_resource type="Script" path="res://sprites/water_sprite.gd" id="2_vogtk"]
+[ext_resource type="Script" path="res://sprites/boob_man.gd" id="2_vogtk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4b23"]
 atlas = ExtResource("1_vx7cd")

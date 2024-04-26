@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://iky0hp7rygys"]
 
-[ext_resource type="Script" path="res://sprites/water_sprite.gd" id="1_1iw8m"]
+[ext_resource type="Script" path="res://sprites/boob_man.gd" id="1_1iw8m"]
 [ext_resource type="Texture2D" uid="uid://dikbvfcj10hld" path="res://sprites/assets/water_sprite-Sheet.png" id="2_wv8ut"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4b23"]

@@ -11,4 +11,6 @@ script = ExtResource("1_63rtu")
 position = Vector2(536, 297)
 
 [node name="Boob_man" parent="." instance=ExtResource("3_s0lcr")]
-position = Vector2(620, 397)
+position = Vector2(552, 399)
+
+[connection signal="shoot_bullet" from="Boob_man" to="." method="_on_boob_man_shoot_bullet"]

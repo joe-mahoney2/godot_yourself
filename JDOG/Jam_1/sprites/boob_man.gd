@@ -3,8 +3,13 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _camara = $Camera2D
 
+var Bullet = preload("res://sprites/boob_bullet.tscn")
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+
+
+#signals
+signal shoot_bullet(Bullet, direction, location)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,6 +20,10 @@ func _init():
 func _process(delta):
 	animation_process()
 	physics_process()
+	
+	if(Input.is_action_just_pressed("ui_left_click")):
+		fire_bullet()
+		
 
 func physics_process():
 	
@@ -32,6 +41,12 @@ func physics_process():
 
 	move_and_slide()
 
+func fire_bullet():
+	print("BANG!")
+	shoot_bullet.emit(Bullet, get_global_mouse_position(), get_position())
+	#shoot_bullet.emit(Bullet, 1, get_position())
+	pass
+
 enum dir {
 	UP,
 	DOWN,
@@ -40,7 +55,7 @@ enum dir {
 }
 
 var action_to_play = "face_down"
-var previous_action = "your_mom_gay"
+var previous_action = "face_down"
 var cur_direction = 0
 
 func animation_process():
@@ -80,11 +95,10 @@ func animation_process():
 		elif(cur_direction == dir.LEFT):
 			action_to_play = "shoot_left"
 			
-	if(Input.is_action_pressed("left_click")):
-		action_to_play = previous_action
-	
 	#play animation
 	_animated_sprite.play(action_to_play)
 	
 	if(previous_action != action_to_play):
 		previous_action = action_to_play
+	
+			
