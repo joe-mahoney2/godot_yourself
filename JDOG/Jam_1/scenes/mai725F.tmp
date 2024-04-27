@@ -31,9 +31,4 @@ collision_mask = 0
 position = Vector2(831.75, 630.75)
 shape = SubResource("RectangleShape2D_akdop")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 1.55
-autostart = true
-
 [connection signal="shoot_bullet" from="Boob_man" to="." method="_on_boob_man_shoot_bullet"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

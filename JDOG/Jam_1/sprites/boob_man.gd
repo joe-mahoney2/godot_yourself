@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var _camara = $Camera2D
 
 var Bullet = preload("res://sprites/boob_bullet.tscn")
-const SPEED = 300.0
+const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
 
 

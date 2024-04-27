@@ -36,10 +36,7 @@ sprite_frames = SubResource("SpriteFrames_yyd1e")
 shape = SubResource("CircleShape2D_e55fh")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2147483651
-collision_mask = 2147483651
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_e55fh")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

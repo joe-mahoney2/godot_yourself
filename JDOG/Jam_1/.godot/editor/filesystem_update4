@@ -1,7 +1,8 @@
-res://scenes/main.tscn
-res://sprites/water_sprite.gd
-res://sprites/boob_man.tscn
 res://sprites/boob_bullet.tscn
-res://sprites/boob_bullet.gd
 res://sprites/boob_man.gd
+res://sprites/boob_man.tscn
+res://sprites/water_sprite.tscn
+res://sprites/water_sprite.gd
+res://tile_maps/tile_map.tscn
+res://scenes/main.tscn
 res://scenes/main.gd

@@ -1,11 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8f16jpgfihon"]
+[gd_scene load_steps=11 format=3 uid="uid://c8f16jpgfihon"]
 
+[ext_resource type="Script" path="res://sprites/water_sprite.gd" id="1_gaslb"]
 [ext_resource type="Texture2D" uid="uid://dikbvfcj10hld" path="res://sprites/assets/water_sprite-Sheet.png" id="1_vx7cd"]
-[ext_resource type="Script" path="res://sprites/boob_man.gd" id="2_vogtk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k4b23"]
 atlas = ExtResource("1_vx7cd")
 region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg4wl"]
+atlas = ExtResource("1_vx7cd")
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7rrop"]
 atlas = ExtResource("1_vx7cd")
@@ -28,6 +32,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k4b23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg4wl")
 }],
 "loop": true,
 "name": &"default",
@@ -57,13 +64,16 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aeldp"]
-radius = 49.0
-height = 108.0
+radius = 63.6665
+height = 127.333
 
 [node name="water_sprite" type="CharacterBody2D"]
 top_level = true
 scale = Vector2(0.3, 0.3)
-script = ExtResource("2_vogtk")
+disable_mode = 2
+collision_layer = 2147483649
+slide_on_ceiling = false
+script = ExtResource("1_gaslb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ygyuy")
@@ -73,5 +83,16 @@ position = Vector2(3, 19)
 shape = SubResource("CapsuleShape2D_aeldp")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.04, 1.04)
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2147483648
+collision_mask = 2147483648
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 19)
+shape = SubResource("CapsuleShape2D_aeldp")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

@@ -185,6 +185,7 @@ height = 173.333
 [node name="Boob_man" type="CharacterBody2D"]
 top_level = true
 scale = Vector2(0.3, 0.3)
+collision_layer = 4
 script = ExtResource("1_nmgpb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -198,4 +199,4 @@ shape = SubResource("CapsuleShape2D_aeldp")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.7, 1.7)
