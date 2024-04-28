@@ -1,7 +1,7 @@
 # Godot Yourself: Learning Game Dev Repository
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Godot Engine](https://img.shields.io/badge/Godot-3.3-orange)](https://godotengine.org/)
+[![Godot Engine](https://img.shields.io/badge/Godot-4.2.1-orange)](https://godotengine.org/)
 [![GitHub issues](https://img.shields.io/github/issues/joe-mahoney2/godot_yourself)](https://github.com/joe-mahoney2/godot_yourself/issues)
 [![GitHub forks](https://img.shields.io/github/forks/joe-mahoney2/godot_yourself)](https://github.com/joe-mahoney2/godot_yourself/network)
 [![GitHub stars](https://img.shields.io/github/stars/joe-mahoney2/godot_yourself)](https://github.com/joe-mahoney2/godot_yourself/stargazers)
