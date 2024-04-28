@@ -6,7 +6,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/joe-mahoney2/godot_yourself)](https://github.com/joe-mahoney2/godot_yourself/network)
 [![GitHub stars](https://img.shields.io/github/stars/joe-mahoney2/godot_yourself)](https://github.com/joe-mahoney2/godot_yourself/stargazers)
 
-Welcome to the **Godot Yourself** repository! This is where you'll find the initial test games created by our talented authors: Joe Mahoney, Mason McDaniel, Ricardo Mendez, and Samuel Hoekwater.
+Welcome to the **Godot Yourself** repository! This is where you'll find the initial test games created by our talented authors: Joe Mahoney, Mason McDaniel, and Samuel Hoekwater.
 
 ## Table of Contents
 
@@ -27,7 +27,6 @@ Meet the brilliant minds behind **Godot Yourself**:
 
 - **Joe Mahoney** - [@joemahoney](https://github.com/joe-mahoney2)
 - **Mason McDaniel** - [@masonmcdaniel](https://github.com/mickpoletti)
-- **Ricardo Mendez** - [@ricardomendez](https://github.com/ricardomendez)
 - **Samuel Hoekwater** - [@samuelhoekwater](https://github.com/shoekwater)
 
 ## Games
