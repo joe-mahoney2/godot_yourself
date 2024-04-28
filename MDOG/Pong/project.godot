@@ -15,6 +15,10 @@ run/main_scene="res://src/main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+FlavorText="*res://singletons/flavorText.gd"
+
 [display]
 
 window/size/viewport_width=1280

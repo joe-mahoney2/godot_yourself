@@ -51,8 +51,6 @@ func new_direction(collider):
 	var dist = ball_y - pad_y
 	var new_dir := Vector2()
 	
-	print(pad_y)
-	
 	#flip the horizontal direction
 	if dir.x > 0:
 		new_dir.x = -1
