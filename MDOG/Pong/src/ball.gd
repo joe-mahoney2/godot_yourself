@@ -34,7 +34,6 @@ func _physics_process(delta):
 		#if ball hits paddle
 		if collider == $"../player1" or collider == $"../opposition":
 			speed += ACCEL
-			print("in here")
 			dir = new_direction(collider)
 		#if it hits a wall
 		else:
