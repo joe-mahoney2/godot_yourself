@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dab5p1ndaxwjy"
+path="res://.godot/imported/grasshopper-jump-sheet.png-8eb9bc4b89cc40dbc33902f462f7ec4e.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://graphics/Sunny Land Collection Files/Packs/Woods Pack/SPRITES/enemies/grasshopper-jump/grasshopper-jump-sheet.png"
+dest_files=["res://.godot/imported/grasshopper-jump-sheet.png-8eb9bc4b89cc40dbc33902f462f7ec4e.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
