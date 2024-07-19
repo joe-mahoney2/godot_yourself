@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://g382nptbm6ga"]
+
+[ext_resource type="PackedScene" uid="uid://dmsgj14lbuddd" path="res://sprites/Slag_man_char.tscn" id="1_8a142"]
+[ext_resource type="PackedScene" uid="uid://dwgv5y7pmbjxs" path="res://tilesets/platform.tscn" id="2_4kvef"]
+
+[node name="Main" type="Node2D"]
+
+[node name="SlagManChar" parent="." instance=ExtResource("1_8a142")]
+position = Vector2(-19, -162)
+
+[node name="Platform" parent="." instance=ExtResource("2_4kvef")]
+position = Vector2(-38, 69)
+
+[node name="Platform2" parent="." instance=ExtResource("2_4kvef")]
+position = Vector2(87, 69)
+
+[node name="Platform3" parent="." instance=ExtResource("2_4kvef")]
+position = Vector2(-163, 69)
+
+[node name="Platform4" parent="." instance=ExtResource("2_4kvef")]
+position = Vector2(212, 69)
+
+[node name="Platform5" parent="." instance=ExtResource("2_4kvef")]
+position = Vector2(370, 27)
+
+[node name="Platform6" parent="." instance=ExtResource("2_4kvef")]
+position = Vector2(533, -31)

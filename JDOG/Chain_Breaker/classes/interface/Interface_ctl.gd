@@ -8,13 +8,13 @@ func _init():
 func process():
 #GET DIRECTION
 	var ic = ENUM.dir.NONE
-	if(Input.is_action_pressed("ui_up")):
+	if(Input.is_action_pressed("ui_w_key")):
 		ic = ENUM.dir.UP
-	elif(Input.is_action_pressed("ui_down")):
+	elif(Input.is_action_pressed("ui_s_key")):
 		ic = ENUM.dir.DOWN
-	elif(Input.is_action_pressed("ui_left")):
+	elif(Input.is_action_pressed("ui_a_key")):
 		ic = ENUM.dir.LEFT
-	elif(Input.is_action_pressed("ui_right")):
+	elif(Input.is_action_pressed("ui_d_key")):
 		ic = ENUM.dir.RIGHT
 		
 #GET ACTION

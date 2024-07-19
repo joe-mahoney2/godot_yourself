@@ -10,7 +10,7 @@ func update_body(input):
 
 func physics_process(delta):
 	
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("ui_a_key", "ui_d_key")
 	var jump      = (interface_ctl_input.action == ENUM.action.JUMP)
 	var grounded  = is_on_floor()
 	
@@ -22,19 +22,20 @@ func physics_process(delta):
 	
 #Jumping and falling
 	if(grounded && jump):
-		velocity.y -= 400.0
-		print(jump)
+		velocity.y -= 500.0
+		#print(jump)
 		
 	if(!grounded):
-		print(velocity.y)
+		#print(velocity.y)
 		velocity.y += gravity * delta
 		
 	if(direction):
-		velocity.x = direction * 100
+		velocity.x = direction * 300
 	else:
 		velocity.x = move_toward(velocity.x, 0, 100)
 		
 	move_and_slide()
 	
-	body_ctl_output.grounded = grounded
-	body_ctl_output.vel      = velocity
+	body_ctl_output.grounded  = grounded
+	body_ctl_output.vel       = velocity
+	body_ctl_output.ascending = (velocity.y < 0.0)

@@ -2,6 +2,7 @@ class_name Body_ctl_t extends CharacterBody2D
 
 var vel
 var grounded
+var ascending
 var col_mask
 
 func _init():

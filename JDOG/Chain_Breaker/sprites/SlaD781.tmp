@@ -172,13 +172,12 @@ script = ExtResource("3_3vp60")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
 position = Vector2(7, 6)
-polygon = PackedVector2Array(-7, -30, -26, -23, -12, -22, -12, -15, -17, -9, -20, -7, -19, -2, -25, 2, -17, 4, -18, 9, -17, 14, 0, 14, 0, 14, -2, 3, 6, -4, -7, -22, 8, -22)
+polygon = PackedVector2Array(-7, -30, -26, -23, -12, -22, -17, -16, -17, -9, -20, -7, -25, 2, -17, 4, -19, 9, -17, 13, 0, 14, 0, 14, -2, 3, 5, -3, -7, -22, 8, -22)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_l6ode")
-animation = &"SWORD_1"
-frame = 2
+animation = &"FALL"
 script = ExtResource("4_wm3wg")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
