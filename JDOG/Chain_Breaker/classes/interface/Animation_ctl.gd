@@ -42,26 +42,26 @@ func set_animations():
 	if(body_ctl.vel.y > 0):
 		animation_ctl.anime = "FALL"
 		
-			
-
+		
 func process():
-	var block      = animation_ctl.block
+	var block      = animation_ctl.block  
 	var anime      = animation_ctl.anime
 	var action     = interface_ctl.action
 	var is_playing = spriteAnime.is_playing()
 	var cur_anime  = spriteAnime.animation
+	var ascending  = body_ctl.ascending
+	
 	
 	#ACTION HANDLE
 	if(action > ENUM.action.NONE):
 		spriteAnime.play(anime)
 		block = true
 
-	if(!block):
-		spriteAnime.play(anime)
-	
 	if(block && is_playing == false):
 		block = false
 		
+	if(!block && !ascending):
+		spriteAnime.play(anime)
 	
 		#FACE RIGHT OR LEFT 
 	if(interface_ctl.face_left > ENUM.ops.NO_OP):
@@ -69,3 +69,4 @@ func process():
 	
 	animation_ctl.block = block
 	pass
+	

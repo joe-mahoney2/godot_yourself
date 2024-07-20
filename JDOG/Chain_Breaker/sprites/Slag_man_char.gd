@@ -13,8 +13,8 @@ var body_ctl_out      = preload("res://classes/types/Body_ctl_t.gd")
 
 func _ready():
 	interface_body_ctl.body       = $CharacterBody2D
-	interface_body_ctl.body_shape = $CharacterBody2D/CollisionShape2D
-	animation_ctl.spriteAnime     = $AnimatedSprite2D
+	interface_body_ctl.body_shape = $CharacterBody2D/CollisionPolygon2D
+	animation_ctl.spriteAnime     = $CharacterBody2D/AnimatedSprite2D
 	pass
 	
 func _process(delta):

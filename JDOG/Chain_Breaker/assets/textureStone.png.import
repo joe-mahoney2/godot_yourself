@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y6sl43ki6emx"
-path="res://.godot/imported/SlagMan_SS.png-0e501f4c4a714f98bdfb0dc5a7d9f953.ctex"
+uid="uid://bftvoxc8ko3j8"
+path="res://.godot/imported/textureStone.png-295254c8554f5b6f856665a513ef7b5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/SlagMan_SS.png"
-dest_files=["res://.godot/imported/SlagMan_SS.png-0e501f4c4a714f98bdfb0dc5a7d9f953.ctex"]
+source_file="res://assets/textureStone.png"
+dest_files=["res://.godot/imported/textureStone.png-295254c8554f5b6f856665a513ef7b5e.ctex"]
 
 [params]
 

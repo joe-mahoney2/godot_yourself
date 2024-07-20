@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddrvxrrl02jhk"
-path="res://.godot/imported/chain_breaker_tileset.png-72d0680d745761f03ec7be41e160aca7.ctex"
+uid="uid://duot1uhse0cmn"
+path="res://.godot/imported/shuriken.png-0fd55c9efd5beba1e75c9691e8bb9402.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chain_breaker_tileset.png"
-dest_files=["res://.godot/imported/chain_breaker_tileset.png-72d0680d745761f03ec7be41e160aca7.ctex"]
+source_file="res://assets/shuriken.png"
+dest_files=["res://.godot/imported/shuriken.png-0fd55c9efd5beba1e75c9691e8bb9402.ctex"]
 
 [params]
 
