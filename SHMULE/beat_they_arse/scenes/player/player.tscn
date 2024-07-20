@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://tk43j4d3vvhm"]
+[gd_scene load_steps=71 format=3 uid="uid://tk43j4d3vvhm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ax62y"]
 [ext_resource type="Texture2D" uid="uid://blxwemsr3frt2" path="res://assets/sprites/Player/CowboyFinal-Sheet.png" id="2_k40x5"]
@@ -71,21 +71,41 @@ region = Rect2(66, 132, 32, 32)
 atlas = ExtResource("2_k40x5")
 region = Rect2(99, 132, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jk77c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0h2q"]
 atlas = ExtResource("2_k40x5")
 region = Rect2(0, 33, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4fn01"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_42rn6"]
 atlas = ExtResource("2_k40x5")
 region = Rect2(33, 33, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kpub2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5lai"]
 atlas = ExtResource("2_k40x5")
 region = Rect2(66, 33, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_73nhq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k413t"]
+atlas = ExtResource("2_k40x5")
+region = Rect2(66, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2adp"]
 atlas = ExtResource("2_k40x5")
 region = Rect2(99, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o25d7"]
+atlas = ExtResource("2_k40x5")
+region = Rect2(132, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vf3l"]
+atlas = ExtResource("2_k40x5")
+region = Rect2(165, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_budlj"]
+atlas = ExtResource("2_k40x5")
+region = Rect2(198, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxdq6"]
+atlas = ExtResource("2_k40x5")
+region = Rect2(231, 33, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ntrug"]
 animations = [{
@@ -178,16 +198,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jk77c")
+"texture": SubResource("AtlasTexture_b0h2q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4fn01")
+"texture": SubResource("AtlasTexture_42rn6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kpub2")
+"texture": SubResource("AtlasTexture_n5lai")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_73nhq")
+"texture": SubResource("AtlasTexture_k413t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2adp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o25d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vf3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_budlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxdq6")
 }],
 "loop": true,
 "name": &"Run",
@@ -394,7 +429,7 @@ tracks/1/keys = {
 resource_name = "Run"
 length = 0.6
 loop_mode = 1
-step = 0.15
+step = 0.075
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -414,10 +449,10 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_13p1l"]
@@ -583,7 +618,8 @@ script = ExtResource("1_ax62y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ntrug")
-animation = &"Fall"
+animation = &"Run"
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
