@@ -110,5 +110,5 @@ func update_animation_parameters():
 
 
 
-func _on_animation_tree_animation_started(anim_name):
+func _on_animation_tree_animation_started(_anim_name):
 	anim_tree["parameters/conditions/attack_again"] = false

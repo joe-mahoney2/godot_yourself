@@ -1,1 +1,14 @@
-Button
+CollisionShape2D
+Area2D
+Node2D
+TileMap
+ParallaxLayer
+ParallaxBackground
+Node
+AnimatedSprite2D
+CharacterBody2D
+AnimationTree
+AnimationPlayer
+Camera2D
+Panel
+StaticBody2D

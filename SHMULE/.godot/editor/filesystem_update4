@@ -1,5 +1,8 @@
-res://scenes/scripts/main.gd
+res://scenes/Player/player.tscn
 res://scenes/main.tscn
-res://scenes/player.tscn
-res://main.tscn
-res://scenes/main.gd
+res://scenes/level/level.tscn
+res://BG.tscn
+res://scenes/frog.tscn
+res://scenes/CityBG.tscn
+res://scenes/scripts/CityBG.gd
+res://scenes/level/city.tscn
