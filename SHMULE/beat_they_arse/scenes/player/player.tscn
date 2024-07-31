@@ -315,6 +315,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_kagip"]
 resource_name = "JumpKick"
 length = 0.4
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -346,7 +347,7 @@ tracks/2/path = NodePath("AnimatedSprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
+"times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
@@ -618,7 +619,7 @@ script = ExtResource("1_ax62y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ntrug")
-animation = &"Run"
+animation = &"JumpKick"
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
