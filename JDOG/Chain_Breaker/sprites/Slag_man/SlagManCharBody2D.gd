@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var ENUM = enum_t.new()
+var ENUM    = enum_t.new()
 
 var interface_ctl_input = interface_ctl_t.new()
 var body_ctl_output     = Body_ctl_t.new()
@@ -14,19 +14,11 @@ func physics_process(delta):
 	var jump      = (interface_ctl_input.action == ENUM.action.JUMP)
 	var grounded  = is_on_floor()
 	
-	#if(grounded):
-		#
-	#else:
-
-	#print(velocity)
-	
 #Jumping and falling
 	if(grounded && jump):
 		velocity.y -= 500.0
-		#print(jump)
 		
 	if(!grounded):
-		#print(velocity.y)
 		velocity.y += gravity * delta
 		
 	if(direction):

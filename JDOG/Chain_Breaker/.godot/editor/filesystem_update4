@@ -1,3 +1,8 @@
-res://tilesets/platform.tscn
-res://Main.tscn
-res://sprites/Slag_man_char.tscn
+res://sprites/Slag_man/Slag_man_char.tscn
+res://sprites/Slag_man/SlagManCharBody2D.gd
+res://classes/interface/Animation_ctl.gd
+res://platforms/GD_Platform.tscn
+res://classes/types/Collider_ctl_t.gd
+res://classes/interface/Collider_ctl.gd
+res://classes/types/enum_t.gd
+res://sprites/Slag_man/Slag_man_char.gd

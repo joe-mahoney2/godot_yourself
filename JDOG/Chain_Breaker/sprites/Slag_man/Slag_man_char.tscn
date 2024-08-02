@@ -1,9 +1,9 @@
 [gd_scene load_steps=24 format=3 uid="uid://dmsgj14lbuddd"]
 
-[ext_resource type="Script" path="res://sprites/Slag_man_char.gd" id="1_ehcbp"]
+[ext_resource type="Script" path="res://sprites/Slag_man/Slag_man_char.gd" id="1_ehcbp"]
 [ext_resource type="Texture2D" uid="uid://j4qqpcet7xry" path="res://assets/noob.png" id="2_d4ssh"]
-[ext_resource type="Script" path="res://sprites/SlagManCharBody2D.gd" id="3_3vp60"]
-[ext_resource type="Script" path="res://sprites/AnimatedSprite2D.gd" id="4_wm3wg"]
+[ext_resource type="Script" path="res://sprites/Slag_man/SlagManCharBody2D.gd" id="3_3vp60"]
+[ext_resource type="Script" path="res://sprites/Slag_man/AnimatedSprite2D.gd" id="4_wm3wg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_un7ul"]
 atlas = ExtResource("2_d4ssh")
@@ -170,15 +170,18 @@ script = ExtResource("1_ehcbp")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("3_3vp60")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+[node name="Normal_CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
 position = Vector2(7, 6)
-polygon = PackedVector2Array(-7, -30, -26, -23, -12, -22, -12, -15, -17, -9, -20, -7, -19, -2, -25, 2, -17, 4, -18, 9, -17, 14, 0, 14, 0, 14, -2, 3, 6, -4, -7, -22, 8, -22)
+polygon = PackedVector2Array(-8, -29, 8, -20, -4, -20, -4, -18, -6, -18, -6, -8, 2, 1, -2, 8, 2, 18, 0, 20, -2, 20, -6, 8, -14, 8, -18, 18, -20, 20, -24, 20, -18, 6, -24, 6, -13, -20, -26, -20, -26, -22)
+
+[node name="Duck_CollisionPolygon2D2" type="CollisionPolygon2D" parent="CharacterBody2D"]
+
+[node name="Sword_CollisionPolygon2D2" type="CollisionPolygon2D" parent="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_l6ode")
-animation = &"SWORD_1"
-frame = 2
+animation = &"IDLE"
 script = ExtResource("4_wm3wg")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
