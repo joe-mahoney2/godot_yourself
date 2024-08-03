@@ -69,4 +69,3 @@ func process():
 	
 	animation_ctl.block = block
 	pass
-	

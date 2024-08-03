@@ -1,10 +1,11 @@
 extends Node2D
 
 #Systems
-var interface_ctl      = Interface_ctl.new()
-var interface_body_ctl = Body_ctl.new()
-
-var animation_ctl      = Animation_ctl.new()  
+var interface_ctl       = Interface_ctl.new()
+var interface_body_ctl  = Body_ctl.new()
+var animation_ctl       = Animation_ctl.new()  
+var player_collider_ctl = Collider_ctl.new()
+var weapon_collider_ctl = Collider_ctl.new()
 
 #Variables
 var delta_t
@@ -15,6 +16,20 @@ func _ready():
 	interface_body_ctl.body       = $CharacterBody2D
 	interface_body_ctl.body_shape = $CharacterBody2D/CollisionPolygon2D
 	animation_ctl.spriteAnime     = $CharacterBody2D/AnimatedSprite2D
+	
+	#Load/Initialize colliders
+	player_collider_ctl.add(
+		$CharacterBody2D/Normal_CollisionPolygon2D, 
+		"NORMAL")
+	player_collider_ctl.add(
+		$CharacterBody2D/Duck_CollisionPolygon2D,  
+		"DUCK")
+		
+	weapon_collider_ctl.add(
+		$CharacterBody2D/Sword_CollisionPolygon2D,
+		"SWORD")
+		
+	player_collider_ctl.set_active("NORMAL")
 	pass
 	
 func _process(delta):

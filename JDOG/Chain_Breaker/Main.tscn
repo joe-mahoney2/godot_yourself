@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://g382nptbm6ga"]
 
-[ext_resource type="PackedScene" uid="uid://dmsgj14lbuddd" path="res://sprites/Slag_man_char.tscn" id="1_8a142"]
-[ext_resource type="PackedScene" uid="uid://dwgv5y7pmbjxs" path="res://tilesets/platform.tscn" id="2_4kvef"]
+[ext_resource type="PackedScene" uid="uid://dmsgj14lbuddd" path="res://sprites/Slag_man/Slag_man_char.tscn" id="1_8a142"]
+[ext_resource type="PackedScene" uid="uid://dwgv5y7pmbjxs" path="res://platforms/GD_Platform.tscn" id="2_4kvef"]
 
 [node name="Main" type="Node2D"]
 
