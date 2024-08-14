@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0vt8u4mtg7g5"]
+
+[ext_resource type="Texture2D" uid="uid://duot1uhse0cmn" path="res://assets/shuriken.png" id="1_3bycp"]
+[ext_resource type="Script" path="res://sprites/projectiles/CharacterBody2D.gd" id="1_yxjwo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6x7su"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quwgh"]
+atlas = ExtResource("1_3bycp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plo4n"]
+atlas = ExtResource("1_3bycp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiwp0"]
+atlas = ExtResource("1_3bycp")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da33k"]
+atlas = ExtResource("1_3bycp")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfpun"]
+atlas = ExtResource("1_3bycp")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu6oe"]
+atlas = ExtResource("1_3bycp")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nc033"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quwgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plo4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yiwp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da33k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfpun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu6oe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[node name="Shuriken" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_yxjwo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_6x7su")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_nc033")
+autoplay = "default"

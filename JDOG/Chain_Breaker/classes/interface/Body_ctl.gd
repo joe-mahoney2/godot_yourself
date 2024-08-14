@@ -1,6 +1,6 @@
 class_name Body_ctl extends CharacterBody2D
-var ENUM = enum_t.new()
 
+var ENUM = enum_t.new()
 var body
 var body_shape
 
