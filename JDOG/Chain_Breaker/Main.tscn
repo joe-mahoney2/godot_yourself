@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://g382nptbm6ga"]
+[gd_scene load_steps=4 format=3 uid="uid://g382nptbm6ga"]
 
 [ext_resource type="PackedScene" uid="uid://dmsgj14lbuddd" path="res://sprites/Slag_man/Slag_man_char.tscn" id="1_8a142"]
 [ext_resource type="PackedScene" uid="uid://dwgv5y7pmbjxs" path="res://platforms/GD_Platform.tscn" id="2_4kvef"]
+[ext_resource type="PackedScene" uid="uid://c0vt8u4mtg7g5" path="res://sprites/projectiles/shuriken.tscn" id="3_2osnn"]
 
 [node name="Main" type="Node2D"]
 
@@ -25,3 +26,6 @@ position = Vector2(370, 27)
 
 [node name="Platform6" parent="." instance=ExtResource("2_4kvef")]
 position = Vector2(533, -31)
+
+[node name="Shuriken" parent="." instance=ExtResource("3_2osnn")]
+position = Vector2(-76, -59)

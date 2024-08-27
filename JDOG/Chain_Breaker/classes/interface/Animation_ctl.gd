@@ -51,7 +51,6 @@ func process():
 	var cur_anime  = spriteAnime.animation
 	var ascending  = body_ctl.ascending
 	
-	
 	#ACTION HANDLE
 	if(action > ENUM.action.NONE):
 		spriteAnime.play(anime)
