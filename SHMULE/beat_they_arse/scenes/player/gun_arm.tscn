@@ -10,3 +10,6 @@ script = ExtResource("1_i6ddq")
 position = Vector2(24, 0)
 scale = Vector2(3, 3)
 texture = ExtResource("2_ejuwn")
+
+[node name="GunTip" type="Marker2D" parent="."]
+position = Vector2(48, 2)
