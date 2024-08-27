@@ -13,3 +13,9 @@ texture = ExtResource("2_ejuwn")
 
 [node name="GunTip" type="Marker2D" parent="."]
 position = Vector2(48, 2)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
+rotation = -1.5708
+scale = Vector2(1, 20)
+collide_with_areas = true
