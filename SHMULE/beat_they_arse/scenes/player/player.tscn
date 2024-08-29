@@ -4614,32 +4614,38 @@ frame = 1
 visible = false
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1k2pp")
-animation = &"Jump"
+animation = &"JumpKick"
+frame = 1
 
 [node name="Torso" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6r022")
-animation = &"Jump"
+animation = &"JumpKick"
+frame = 1
 
 [node name="RightLeg" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_kh1ot")
-animation = &"Jump"
+animation = &"JumpKick"
+frame = 1
 
 [node name="RightArm" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_l35d6")
-animation = &"Jump"
+animation = &"JumpKick"
+frame = 1
 
 [node name="Head" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4kaef")
-animation = &"Jump"
+animation = &"JumpKick"
+frame = 1
 
 [node name="Hat" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_7mrri")
-animation = &"Jump"
+animation = &"JumpKick"
+frame = 1
 
 [node name="ShoulderMount" type="Node2D" parent="Body"]
 position = Vector2(13, -9)
