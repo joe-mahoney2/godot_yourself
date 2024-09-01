@@ -20,6 +20,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # Things get serious below this comment. THe above stuff is unserious
 func _ready():
+	$"/root/Global".register_player(self)
 	anim_tree.active = true
 
 func _process(_delta):
