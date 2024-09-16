@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0nwqiyufg3fm"]
+[gd_scene load_steps=5 format=3 uid="uid://b0nwqiyufg3fm"]
 
 [ext_resource type="PackedScene" uid="uid://tk43j4d3vvhm" path="res://scenes/player/player.tscn" id="1_idu6p"]
 [ext_resource type="PackedScene" uid="uid://dag5j1ieay24t" path="res://scenes/enemies/crocodileGoon.tscn" id="2_a4evc"]
+[ext_resource type="PackedScene" uid="uid://drlehh8oij8db" path="res://scenes/effects/HealthBar.tscn" id="3_3yg43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxare"]
 size = Vector2(1359, 67)
@@ -21,3 +22,11 @@ debug_color = Color(0.992157, 0, 0.270588, 0.419608)
 
 [node name="CrocodileGoon" parent="." instance=ExtResource("2_a4evc")]
 position = Vector2(868, 227)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("3_3yg43")]
+offset_left = 22.0
+offset_top = 612.0
+offset_right = 262.0
+offset_bottom = 627.0

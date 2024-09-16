@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-# jump count
 var can_double_jump = true
 var direction = 0
 
@@ -11,6 +10,7 @@ var dust_scene = preload("res://scenes/effects/dust.tscn")
 # get the gravity from the project settings to be synced with RigidBody  nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@onready var health = $"/root/Global".MAX_HEALTH_PLAYER
 @onready var body = $Body
 @onready var anim_player = $AnimationPlayer
 @onready var anim_tree = $AnimationTree

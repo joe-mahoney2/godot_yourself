@@ -1,13 +1,16 @@
 extends Node
 
+const STATE_NAME = "chase_state"
+
 @onready var player = $"/root/Global".player
 @onready var croc = get_node("../../../CrocodileGoon")
+@onready var body = get_node("../../../CrocodileGoon/Body")
 @onready var anim_player = get_node("../../AnimationPlayer")
 
 var fsm: StateMachine
 
 func enter():
-	print("Hello from chase_state!")
+	anim_player.play("Run")
 
 func exit():
 	# Go back to the last state
@@ -15,22 +18,27 @@ func exit():
 
 func _process(delta):
 	# Approach player
-	var distance = player.position - self.global_position
-	var direction = distance.normalized()
+	var distance = player.global_position - self.global_position
 	# flip if we need to
-	if direction.x > 0:
-		croc.get_node("Sprite2D").flip_h = false
-	elif direction.x < 0:
-		croc.get_node("Sprite2D").flip_h = true
+	if distance.x > 0:
+		body.scale.x = 1
+	elif distance.x < 0:
+		body.scale.x = -1
 	# run
-	croc.velocity.x = direction.x * croc.SPEED
-	anim_player.play("Run")
-	print("History: ", fsm.history)
-	
-	if (abs(distance.x) < croc.ATTACK_RANGE):
-		fsm.change_to("jab1_state")
+	croc.velocity.x = distance.normalized().x * croc.SPEED
 
 func _on_player_detection_body_exited(body):
 	# lost player, return to idle
-	print("Where did he go")
-	exit()
+	if (body.name == "Player" and fsm.current_state == fsm.states[STATE_NAME]):
+		exit()
+
+func _on_jab_range_body_entered(body):
+	# Check if state has changed because we can 
+	if (body.name == "Player" and fsm.current_state == fsm.states["chase_state"]):
+		fsm.change_to("jab_state")
+
+
+func _on_crocodile_goon_dead():
+	if (fsm.current_state == fsm.states["chase_state"]):
+		print("CHANGING TO DEATH IN CHASE")
+		fsm.change_to("death_state")

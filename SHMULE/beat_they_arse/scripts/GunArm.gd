@@ -14,16 +14,7 @@ func _process(delta):
 	_update_arm_rotation()
 	
 	if Input.is_action_just_pressed("left_click"):
-		# spawn muzzle flare
-		spawn_flash()
-		# add player knockback (remove for now)
-		# character_body.velocity -= direction * 200
-		
-		# check for bullet collision
-		if ray.is_colliding():
-			# spawn dust at point
-			spawn_bullet_dust()
-		
+		shoot()
 
 func _update_arm_rotation():
 	var shoulder_position = character_body.shoulder_mount.global_position
@@ -49,3 +40,18 @@ func spawn_bullet_dust():
 	var bull_dust = bullet_dust.instantiate()
 	bull_dust.global_position = ray.get_collision_point()
 	get_parent().get_parent().add_child(bull_dust)
+
+func shoot():
+	# spawn muzzle flare
+	spawn_flash()
+	# player knockback (remove for now)
+	# character_body.velocity -= direction * 200
+	
+	# check for bullet collision
+	if ray.is_colliding():
+		# spawn dust at point
+		spawn_bullet_dust()
+		# Check what the ray is colliding with
+		var hit = ray.get_collider()
+		if (hit.name == "CrocodileGoon"):
+			hit.damage(1)

@@ -1,16 +1,36 @@
-[gd_scene load_steps=19 format=3 uid="uid://dag5j1ieay24t"]
+[gd_scene load_steps=22 format=3 uid="uid://dag5j1ieay24t"]
 
-[ext_resource type="Texture2D" uid="uid://dfatedjftksfj" path="res://assets/sprites/enemies/CrocodileGoonBrown-Sheet_evenly_spaced.png" id="1_6w0fb"]
 [ext_resource type="Script" path="res://scripts/crocodileGoon.gd" id="1_vn06k"]
+[ext_resource type="Texture2D" uid="uid://bd2e28k7wgvdm" path="res://assets/sprites/enemies/CrocodileGoonBrownWithDeath-Sheet.png" id="2_4yqo0"]
 [ext_resource type="Script" path="res://scripts/StateMachines.gd" id="3_4lvl3"]
 [ext_resource type="Script" path="res://scripts/idle_state.gd" id="4_skts7"]
 [ext_resource type="Script" path="res://scripts/chase_state.gd" id="5_mvluj"]
-[ext_resource type="Script" path="res://scripts/jab1_state.gd" id="6_c83ku"]
-[ext_resource type="Script" path="res://scripts/jab2_state.gd" id="7_c7ohn"]
+[ext_resource type="Script" path="res://scripts/jab_state.gd" id="6_54dhm"]
+[ext_resource type="Script" path="res://scripts/death_state.gd" id="7_1yiy7"]
+[ext_resource type="PackedScene" uid="uid://drlehh8oij8db" path="res://scenes/effects/HealthBar.tscn" id="7_kqvq8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rphqn"]
 radius = 24.0
 height = 86.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o5na"]
+size = Vector2(40, 60)
+
+[sub_resource type="Animation" id="Animation_0a3sr"]
+resource_name = "Death"
+length = 5.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [56, 57, 58, 59]
+}
 
 [sub_resource type="Animation" id="Animation_s8dim"]
 resource_name = "Fall"
@@ -19,7 +39,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Body/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,7 +57,7 @@ step = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Body/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -54,7 +74,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Body/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -71,7 +91,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Body/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -88,7 +108,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Body/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -105,7 +125,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Body/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -120,7 +140,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Body/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -138,7 +158,7 @@ step = 0.075
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Body/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -150,6 +170,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cqea7"]
 _data = {
+"Death": SubResource("Animation_0a3sr"),
 "Fall": SubResource("Animation_s8dim"),
 "Idle": SubResource("Animation_4uuth"),
 "Jab1": SubResource("Animation_v0hhe"),
@@ -172,11 +193,20 @@ texture_filter = 1
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_rphqn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
 scale = Vector2(3, 3)
-texture = ExtResource("1_6w0fb")
+texture = ExtResource("2_4yqo0")
 hframes = 8
-vframes = 7
+vframes = 8
+
+[node name="JabRange" type="Area2D" parent="Body"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/JabRange"]
+visible = false
+position = Vector2(24, 14)
+shape = SubResource("RectangleShape2D_7o5na")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -198,14 +228,25 @@ script = ExtResource("4_skts7")
 [node name="chase_state" type="Node2D" parent="StateMachines"]
 script = ExtResource("5_mvluj")
 
-[node name="jab1_state" type="Node2D" parent="StateMachines"]
-script = ExtResource("6_c83ku")
+[node name="jab_state" type="Node2D" parent="StateMachines"]
+script = ExtResource("6_54dhm")
 
-[node name="jab2_state" type="Node2D" parent="StateMachines"]
-script = ExtResource("7_c7ohn")
+[node name="death_state" type="Node2D" parent="StateMachines"]
+script = ExtResource("7_1yiy7")
 
-[connection signal="animation_finished" from="AnimationPlayer" to="StateMachines/jab1_state" method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="AnimationPlayer" to="StateMachines/jab2_state" method="_on_animation_player_animation_finished"]
+[node name="HealthBar" parent="." instance=ExtResource("7_kqvq8")]
+offset_left = -43.0
+offset_top = -59.0
+offset_right = 42.0
+offset_bottom = -51.0
+
+[connection signal="dead" from="." to="StateMachines/idle_state" method="_on_crocodile_goon_dead"]
+[connection signal="dead" from="." to="StateMachines/chase_state" method="_on_crocodile_goon_dead"]
+[connection signal="dead" from="." to="StateMachines/jab_state" method="_on_crocodile_goon_dead"]
+[connection signal="body_entered" from="Body/JabRange" to="StateMachines/chase_state" method="_on_jab_range_body_entered"]
+[connection signal="body_exited" from="Body/JabRange" to="StateMachines/jab_state" method="_on_jab_range_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachines/jab_state" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachines/death_state" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="StateMachines/idle_state" method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

@@ -22,6 +22,8 @@ func _ready():
 
 func change_to(state_name):
 	# push current state to memory
+	print("Changing to ", state_name)
+	print("From ", current_state)
 	history.append(current_state.name)
 	# change to new state
 	set_state(state_name)
