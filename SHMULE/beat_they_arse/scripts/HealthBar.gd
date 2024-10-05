@@ -19,10 +19,9 @@ func _set_health(new_health):
 	var prev_health = health
 	health = min(max_value, new_health)
 	value = health
-	
-	if health <= 0:
-		queue_free()
-		
+	# animate the decrease
+	create_tween().tween_property(damage_bar, "value", value, 0.3)
+
 	if health < prev_health:
 		timer.start()
 	else:
@@ -30,7 +29,8 @@ func _set_health(new_health):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if damage_bar.value <= 0:
+		queue_free()
 
 
 func _on_timer_timeout():

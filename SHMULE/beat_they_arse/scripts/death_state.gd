@@ -22,3 +22,6 @@ func _process(_delta):
 func _on_animation_player_animation_finished(anim_name):
 	if (anim_name == "Death"):
 		croc.queue_free()
+
+func _on_crocodile_goon_dead():
+	fsm.change_to("death_state")

@@ -44,13 +44,12 @@ func _on_animation_player_animation_finished(anim_name):
 			# Player not in range anymore, exit
 			exit()
 
-
 func _on_jab_range_body_exited(body):
 	if (body.name == "Player" and fsm.current_state == fsm.states[STATE_NAME]):
 		player_in_jab_range = false
 
 
-func _on_crocodile_goon_dead():
-	if (fsm.current_state == fsm.states[STATE_NAME]):
-		print("CHANGING TO DEATH IN JAB")
-		fsm.change_to("death_state")
+func _on_punch_area_2d_body_entered(body):
+	if (body.name == "Player" and fsm.current_state == fsm.states[STATE_NAME]):
+		# Hurt Player here
+		print("Hit")

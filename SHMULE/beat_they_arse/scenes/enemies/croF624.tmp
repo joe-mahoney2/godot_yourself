@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dag5j1ieay24t"]
+[gd_scene load_steps=24 format=3 uid="uid://dag5j1ieay24t"]
 
 [ext_resource type="Script" path="res://scripts/crocodileGoon.gd" id="1_vn06k"]
 [ext_resource type="Texture2D" uid="uid://bd2e28k7wgvdm" path="res://assets/sprites/enemies/CrocodileGoonBrownWithDeath-Sheet.png" id="2_4yqo0"]
@@ -13,10 +13,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rphqn"]
 radius = 24.0
 height = 86.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vvxyd"]
-radius = 1.66667
-height = 13.3333
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7o5na"]
 size = Vector2(40, 60)
@@ -36,18 +32,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [56, 57, 58, 59]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
 
 [sub_resource type="Animation" id="Animation_s8dim"]
 resource_name = "Fall"
@@ -64,46 +48,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [48]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
-
-[sub_resource type="Animation" id="Animation_fy8pj"]
-resource_name = "Hurt"
-length = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [57]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
 }
 
 [sub_resource type="Animation" id="Animation_4uuth"]
@@ -123,18 +67,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
 
 [sub_resource type="Animation" id="Animation_v0hhe"]
 resource_name = "Jab1"
@@ -151,30 +83,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [16, 17, 18, 19, 17]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-1, -0.666667), Vector2(-1, -0.666667), Vector2(6.33333, -2), Vector2(4, -0.666667), Vector2(-1, -0.333333)]
 }
 
 [sub_resource type="Animation" id="Animation_3n053"]
@@ -193,30 +101,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [24, 25, 26, 27, 25]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-0.666667, -1), Vector2(5.33333, -2), Vector2(9.33333, -3), Vector2(8.66667, -2), Vector2(5.66667, -2)]
-}
 
 [sub_resource type="Animation" id="Animation_dbjlg"]
 resource_name = "Jump"
@@ -233,18 +117,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [32]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
 }
 
 [sub_resource type="Animation" id="Animation_0sqck"]
@@ -263,18 +135,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [40, 41, 42, 41]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
 
 [sub_resource type="Animation" id="Animation_v7l6w"]
 length = 0.001
@@ -289,30 +149,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1, -0.666667)]
 }
 
 [sub_resource type="Animation" id="Animation_fwexy"]
@@ -332,17 +168,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [8, 9, 10, 11, 12, 13, 14, 15]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Body/Sprite2D/PunchArea2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
+
+[sub_resource type="Animation" id="Animation_fy8pj"]
+resource_name = "Hurt"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, true]
+"values": [57]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cqea7"]
@@ -378,14 +218,6 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_4yqo0")
 hframes = 8
 vframes = 8
-
-[node name="PunchArea2D" type="Area2D" parent="Body/Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Sprite2D/PunchArea2D"]
-position = Vector2(-1, -0.666667)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_vvxyd")
-disabled = true
 
 [node name="JabRange" type="Area2D" parent="Body"]
 
@@ -434,7 +266,6 @@ offset_bottom = -51.0
 [connection signal="dead" from="." to="StateMachines/jab_state" method="_on_crocodile_goon_dead"]
 [connection signal="dead" from="." to="StateMachines/death_state" method="_on_crocodile_goon_dead"]
 [connection signal="hurt" from="." to="StateMachines/hurt_state" method="_on_crocodile_goon_hurt"]
-[connection signal="body_entered" from="Body/Sprite2D/PunchArea2D" to="StateMachines/jab_state" method="_on_punch_area_2d_body_entered"]
 [connection signal="body_entered" from="Body/JabRange" to="StateMachines/chase_state" method="_on_jab_range_body_entered"]
 [connection signal="body_exited" from="Body/JabRange" to="StateMachines/jab_state" method="_on_jab_range_body_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachines/jab_state" method="_on_animation_player_animation_finished"]

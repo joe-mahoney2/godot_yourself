@@ -36,9 +36,3 @@ func _on_jab_range_body_entered(body):
 	# Check if state has changed because we can 
 	if (body.name == "Player" and fsm.current_state == fsm.states["chase_state"]):
 		fsm.change_to("jab_state")
-
-
-func _on_crocodile_goon_dead():
-	if (fsm.current_state == fsm.states["chase_state"]):
-		print("CHANGING TO DEATH IN CHASE")
-		fsm.change_to("death_state")

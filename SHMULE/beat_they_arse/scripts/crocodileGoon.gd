@@ -5,10 +5,12 @@ extends CharacterBody2D
 @onready var health_bar = $HealthBar
 
 var SPEED = 150
+var downed = false
 var ATTACK_RANGE = 50
 var health : int
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+signal hurt
 signal dead
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +30,9 @@ func _process(delta):
 
 func damage(value: int):
 	health -= value
+	if not downed:
+		emit_signal("hurt")
+		health_bar._set_health(health)
 	# if health is zero or below
 	if (health <= 0):
 		die()
@@ -38,4 +43,5 @@ func damage(value: int):
 
 func die():
 	print("i am dead")
+	downed = true
 	emit_signal("dead")

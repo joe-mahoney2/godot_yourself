@@ -30,3 +30,5 @@ offset_left = 22.0
 offset_top = 612.0
 offset_right = 262.0
 offset_bottom = 627.0
+
+[node name="CrocodileSpawnPoint" type="Marker2D" parent="."]

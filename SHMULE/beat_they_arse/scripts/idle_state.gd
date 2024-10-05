@@ -24,9 +24,3 @@ func _on_player_detection_body_entered(body):
 		print("There he is!")
 		# Enter chase state
 		exit("chase_state")
-
-
-func _on_crocodile_goon_dead():
-	if (fsm.current_state == fsm.states[STATE_NAME]):
-		print("CHANGING TO DEATH IN IDLE")
-		fsm.change_to("death_state")
