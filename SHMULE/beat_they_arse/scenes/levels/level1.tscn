@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0nwqiyufg3fm"]
+[gd_scene load_steps=6 format=3 uid="uid://b0nwqiyufg3fm"]
 
 [ext_resource type="PackedScene" uid="uid://tk43j4d3vvhm" path="res://scenes/player/player.tscn" id="1_idu6p"]
-[ext_resource type="PackedScene" uid="uid://dag5j1ieay24t" path="res://scenes/enemies/crocodileGoon.tscn" id="2_a4evc"]
+[ext_resource type="Script" path="res://scripts/level1.gd" id="1_upljj"]
 [ext_resource type="PackedScene" uid="uid://drlehh8oij8db" path="res://scenes/effects/HealthBar.tscn" id="3_3yg43"]
+[ext_resource type="PackedScene" uid="uid://qwp24lffxigt" path="res://scenes/enemies/spawn_point.tscn" id="5_5v4hm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxare"]
 size = Vector2(1359, 67)
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_upljj")
 
 [node name="Player" parent="." instance=ExtResource("1_idu6p")]
 unique_name_in_owner = true
@@ -20,9 +22,6 @@ position = Vector2(632.5, 326)
 shape = SubResource("RectangleShape2D_hxare")
 debug_color = Color(0.992157, 0, 0.270588, 0.419608)
 
-[node name="CrocodileGoon" parent="." instance=ExtResource("2_a4evc")]
-position = Vector2(868, 227)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource("3_3yg43")]
@@ -31,4 +30,5 @@ offset_top = 612.0
 offset_right = 262.0
 offset_bottom = 627.0
 
-[node name="CrocodileSpawnPoint" type="Marker2D" parent="."]
+[node name="SpawnPoint" parent="." instance=ExtResource("5_5v4hm")]
+position = Vector2(686, 159)

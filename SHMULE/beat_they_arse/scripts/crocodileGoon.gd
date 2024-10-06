@@ -15,7 +15,7 @@ signal dead
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	health = 3
+	health = 4
 	health_bar.init_health(health)
 
 func _physics_process(delta):

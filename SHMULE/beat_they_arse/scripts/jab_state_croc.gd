@@ -4,8 +4,8 @@ extends Node
 const STATE_NAME = "jab_state"
 
 @onready var player = $"/root/Global".player
-@onready var croc = get_node("../../../CrocodileGoon")
-@onready var anim_player = get_node("../../AnimationPlayer")
+@onready var croc = get_parent().get_parent()
+@onready var anim_player = $"../../AnimationPlayer"
 
 var fsm: StateMachine
 var player_in_jab_range

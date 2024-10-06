@@ -1,4 +1,4 @@
-[gd_scene load_steps=386 format=3 uid="uid://tk43j4d3vvhm"]
+[gd_scene load_steps=388 format=3 uid="uid://tk43j4d3vvhm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ax62y"]
 [ext_resource type="Texture2D" uid="uid://dni1sqjhdbqw1" path="res://assets/sprites/Player/cowboy/Ghost.png" id="3_gxu54"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dd4tvpdsekeld" path="res://assets/sprites/Player/cowboy/RightArm.png" id="8_8rjv0"]
 [ext_resource type="Texture2D" uid="uid://bkmhsudmmtq3p" path="res://assets/sprites/Player/cowboy/Head.png" id="9_wf18r"]
 [ext_resource type="Texture2D" uid="uid://d32evlqnwy8ym" path="res://assets/sprites/Player/cowboy/Hat.png" id="10_t4pgc"]
+[ext_resource type="Script" path="res://scripts/idle_state_player.gd" id="11_gv2qm"]
 [ext_resource type="PackedScene" uid="uid://c8spc6rm0ntu3" path="res://scenes/player/gun_arm.tscn" id="11_he2ys"]
+[ext_resource type="Script" path="res://scripts/air_state_player.gd" id="12_nlv2u"]
 
 [sub_resource type="Animation" id="Animation_qwvmc"]
 resource_name = "Death"
@@ -2155,7 +2157,6 @@ input_1/reset = true
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_kpk25"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vabnm"]
-graph_offset = Vector2(-463.645, -1.51718)
 nodes/Fall/node = SubResource("AnimationNodeAnimation_ggfvp")
 nodes/Fall/position = Vector2(40, 240)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_xv0wo")
@@ -4571,6 +4572,7 @@ scale = Vector2(2, 2)
 drag_vertical_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+active = false
 libraries = {
 "": SubResource("AnimationLibrary_13p1l")
 }
@@ -4614,41 +4616,55 @@ frame = 1
 visible = false
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1k2pp")
-animation = &"JumpKick"
+animation = &"Death"
 frame = 1
 
 [node name="Torso" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6r022")
-animation = &"JumpKick"
+animation = &"Death"
 frame = 1
 
 [node name="RightLeg" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_kh1ot")
-animation = &"JumpKick"
+animation = &"Death"
 frame = 1
 
 [node name="RightArm" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_l35d6")
-animation = &"JumpKick"
+animation = &"Death"
 frame = 1
 
 [node name="Head" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4kaef")
-animation = &"JumpKick"
+animation = &"Death"
 frame = 1
 
 [node name="Hat" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_7mrri")
-animation = &"JumpKick"
+animation = &"Death"
 frame = 1
 
 [node name="ShoulderMount" type="Node2D" parent="Body"]
 position = Vector2(13, -9)
+
+[node name="StateMachines" type="Node2D" parent="."]
+
+[node name="idle_state" type="Node2D" parent="StateMachines"]
+script = ExtResource("11_gv2qm")
+
+[node name="run_state" type="Node2D" parent="StateMachines"]
+
+[node name="air_state" type="Node2D" parent="StateMachines"]
+script = ExtResource("12_nlv2u")
+
+[node name="hurt_state" type="Node2D" parent="StateMachines"]
+
+[node name="death_state" type="Node2D" parent="StateMachines"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

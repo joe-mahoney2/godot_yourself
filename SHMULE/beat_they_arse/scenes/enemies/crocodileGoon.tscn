@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scripts/crocodileGoon.gd" id="1_vn06k"]
 [ext_resource type="Texture2D" uid="uid://bd2e28k7wgvdm" path="res://assets/sprites/enemies/CrocodileGoonBrownWithDeath-Sheet.png" id="2_4yqo0"]
 [ext_resource type="Script" path="res://scripts/StateMachines.gd" id="3_4lvl3"]
-[ext_resource type="Script" path="res://scripts/idle_state.gd" id="4_skts7"]
-[ext_resource type="Script" path="res://scripts/chase_state.gd" id="5_mvluj"]
-[ext_resource type="Script" path="res://scripts/jab_state.gd" id="6_54dhm"]
-[ext_resource type="Script" path="res://scripts/death_state.gd" id="7_1yiy7"]
+[ext_resource type="Script" path="res://scripts/idle_state_croc.gd" id="4_hokey"]
+[ext_resource type="Script" path="res://scripts/chase_state_croc.gd" id="5_2ykd6"]
+[ext_resource type="Script" path="res://scripts/jab_state_croc.gd" id="6_wpj8e"]
+[ext_resource type="Script" path="res://scripts/death_state_croc.gd" id="7_5xs3j"]
 [ext_resource type="PackedScene" uid="uid://drlehh8oij8db" path="res://scenes/effects/HealthBar.tscn" id="7_kqvq8"]
-[ext_resource type="Script" path="res://scripts/hurt_state.gd" id="8_rpnfb"]
+[ext_resource type="Script" path="res://scripts/hurt_state_croc.gd" id="8_2cc5e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rphqn"]
 radius = 24.0
@@ -409,19 +409,19 @@ shape = SubResource("CircleShape2D_fdgni")
 script = ExtResource("3_4lvl3")
 
 [node name="idle_state" type="Node2D" parent="StateMachines"]
-script = ExtResource("4_skts7")
+script = ExtResource("4_hokey")
 
 [node name="chase_state" type="Node2D" parent="StateMachines"]
-script = ExtResource("5_mvluj")
+script = ExtResource("5_2ykd6")
 
 [node name="jab_state" type="Node2D" parent="StateMachines"]
-script = ExtResource("6_54dhm")
+script = ExtResource("6_wpj8e")
 
 [node name="death_state" type="Node2D" parent="StateMachines"]
-script = ExtResource("7_1yiy7")
+script = ExtResource("7_5xs3j")
 
 [node name="hurt_state" type="Node2D" parent="StateMachines"]
-script = ExtResource("8_rpnfb")
+script = ExtResource("8_2cc5e")
 
 [node name="HealthBar" parent="." instance=ExtResource("7_kqvq8")]
 offset_left = -43.0

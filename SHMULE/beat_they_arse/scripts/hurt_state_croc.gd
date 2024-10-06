@@ -3,9 +3,8 @@ extends Node
 const STATE_NAME = "hurt_state"
 
 @onready var player = $"/root/Global".player
-@onready var croc = get_node("../../../CrocodileGoon")
-@onready var body = get_node("../../../CrocodileGoon/Body")
-@onready var anim_player = get_node("../../AnimationPlayer")
+@onready var croc = get_parent().get_parent()
+@onready var anim_player = $"../../AnimationPlayer"
 
 var fsm: StateMachine
 
