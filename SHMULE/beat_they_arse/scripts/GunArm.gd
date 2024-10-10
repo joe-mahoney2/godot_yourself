@@ -53,5 +53,5 @@ func shoot():
 		spawn_bullet_dust()
 		# Check what the ray is colliding with
 		var hit = ray.get_collider()
-		if (hit.name == "CrocodileGoon"):
+		if (hit.is_in_group("Enemy")):
 			hit.damage(1)

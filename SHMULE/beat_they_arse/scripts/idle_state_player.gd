@@ -2,7 +2,7 @@ extends Node
 
 const STATE_NAME = "idle_state"
 
-@onready var anim_player = get_node("../../AnimationPlayer")
+@onready var anim_player = get_parent().get_parent().anim_player
 
 var fsm: StateMachine
 

@@ -362,7 +362,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdgni"]
 radius = 463.4
 
-[node name="CrocodileGoon" type="CharacterBody2D"]
+[node name="CrocodileGoon" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_vn06k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -382,6 +382,7 @@ vframes = 8
 [node name="PunchArea2D" type="Area2D" parent="Body/Sprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Sprite2D/PunchArea2D"]
+visible = false
 position = Vector2(-1, -0.666667)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vvxyd")

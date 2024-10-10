@@ -53,3 +53,4 @@ func _on_punch_area_2d_body_entered(body):
 	if (body.name == "Player" and fsm.current_state == fsm.states[STATE_NAME]):
 		# Hurt Player here
 		print("Hit")
+		body.damage(1)

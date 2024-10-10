@@ -4,6 +4,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var can_double_jump = true
 var direction = 0
+var dead = false
 
 var dust_scene = preload("res://scenes/effects/dust.tscn")
 
@@ -17,11 +18,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var shoulder_mount = $Body/ShoulderMount
 @onready var gun_arm: Node2D = $GunArm
 @onready var camera2d: Camera2D = $Camera2D
+@onready var health_bar = $Camera2D/CanvasGroup/HealthBar
 
 # Things get serious below this comment. THe above stuff is unserious
 func _ready():
 	$"/root/Global".register_player(self)
 	anim_tree.active = true
+	health_bar.init_health(health)
 
 func _process(_delta):
 	direction = Input.get_axis("ui_left", "ui_right")
@@ -109,6 +112,23 @@ func update_facing_direction():
 		body.scale.x = -1
 		gun_arm.position.x = -13
 		gun_arm.image.flip_v = true
+
+func damage(value: int):
+	health -= value
+	if not dead:
+		health_bar._set_health(health)
+	# if health is zero or below
+	if (health <= 0):
+		die()
+	else:
+		# update health bar
+		print("updating health bar")
+
+func die():
+	# set dead var
+	dead = true
+	# play death animation
+	anim_player.play("Death")
 
 func spawn_dust():
 	var dust = dust_scene.instantiate()

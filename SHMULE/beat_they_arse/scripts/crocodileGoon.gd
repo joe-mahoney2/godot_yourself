@@ -15,12 +15,12 @@ signal dead
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	health = 4
+	health = 2
 	health_bar.init_health(health)
 
 func _physics_process(delta):
 	# Gravity for Mr Crocodile
-	if not is_on_floor():
+	if not is_on_floor() and not downed:
 		velocity.y += gravity * delta
 	move_and_slide()
 
@@ -39,7 +39,7 @@ func damage(value: int):
 	else:
 		# update health bar
 		print("updating health bar")
-		
+
 
 func die():
 	print("i am dead")

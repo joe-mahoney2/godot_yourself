@@ -1,4 +1,4 @@
-[gd_scene load_steps=388 format=3 uid="uid://tk43j4d3vvhm"]
+[gd_scene load_steps=392 format=3 uid="uid://tk43j4d3vvhm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ax62y"]
 [ext_resource type="Texture2D" uid="uid://dni1sqjhdbqw1" path="res://assets/sprites/Player/cowboy/Ghost.png" id="3_gxu54"]
@@ -12,6 +12,10 @@
 [ext_resource type="Script" path="res://scripts/idle_state_player.gd" id="11_gv2qm"]
 [ext_resource type="PackedScene" uid="uid://c8spc6rm0ntu3" path="res://scenes/player/gun_arm.tscn" id="11_he2ys"]
 [ext_resource type="Script" path="res://scripts/air_state_player.gd" id="12_nlv2u"]
+[ext_resource type="PackedScene" uid="uid://drlehh8oij8db" path="res://scenes/effects/HealthBar.tscn" id="13_s7ab5"]
+[ext_resource type="Script" path="res://scripts/run_state_player.gd" id="13_ubi21"]
+[ext_resource type="Script" path="res://scripts/hurt_state_player.gd" id="15_7qcqw"]
+[ext_resource type="Script" path="res://scripts/death_state_player.gd" id="16_5sw3x"]
 
 [sub_resource type="Animation" id="Animation_qwvmc"]
 resource_name = "Death"
@@ -4571,6 +4575,14 @@ script = ExtResource("1_ax62y")
 scale = Vector2(2, 2)
 drag_vertical_enabled = true
 
+[node name="CanvasGroup" type="CanvasLayer" parent="Camera2D"]
+
+[node name="HealthBar" parent="Camera2D/CanvasGroup" instance=ExtResource("13_s7ab5")]
+offset_left = 27.0
+offset_top = 600.0
+offset_right = 267.0
+offset_bottom = 615.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 active = false
 libraries = {
@@ -4658,13 +4670,16 @@ position = Vector2(13, -9)
 script = ExtResource("11_gv2qm")
 
 [node name="run_state" type="Node2D" parent="StateMachines"]
+script = ExtResource("13_ubi21")
 
 [node name="air_state" type="Node2D" parent="StateMachines"]
 script = ExtResource("12_nlv2u")
 
 [node name="hurt_state" type="Node2D" parent="StateMachines"]
+script = ExtResource("15_7qcqw")
 
 [node name="death_state" type="Node2D" parent="StateMachines"]
+script = ExtResource("16_5sw3x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

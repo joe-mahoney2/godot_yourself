@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0nwqiyufg3fm"]
+[gd_scene load_steps=5 format=3 uid="uid://b0nwqiyufg3fm"]
 
 [ext_resource type="PackedScene" uid="uid://tk43j4d3vvhm" path="res://scenes/player/player.tscn" id="1_idu6p"]
 [ext_resource type="Script" path="res://scripts/level1.gd" id="1_upljj"]
-[ext_resource type="PackedScene" uid="uid://drlehh8oij8db" path="res://scenes/effects/HealthBar.tscn" id="3_3yg43"]
 [ext_resource type="PackedScene" uid="uid://qwp24lffxigt" path="res://scenes/enemies/spawn_point.tscn" id="5_5v4hm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxare"]
@@ -22,13 +21,5 @@ position = Vector2(632.5, 326)
 shape = SubResource("RectangleShape2D_hxare")
 debug_color = Color(0.992157, 0, 0.270588, 0.419608)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("3_3yg43")]
-offset_left = 22.0
-offset_top = 612.0
-offset_right = 262.0
-offset_bottom = 627.0
-
 [node name="SpawnPoint" parent="." instance=ExtResource("5_5v4hm")]
-position = Vector2(686, 159)
+position = Vector2(748, 216)
