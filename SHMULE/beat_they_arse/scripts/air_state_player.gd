@@ -16,10 +16,12 @@ func exit(next_state):
 func _process(_delta):
 	# If going up
 	if player.velocity.y < 0:
-		anim_player.play("Jump")
+		pass
+		#anim_player.play("Jump")
 	# going down
 	elif player.velocity.y > 0:
-		anim_player.play("Fall")
+		pass
+		#anim_player.play("Fall")
 
 func _on_player_detection_body_entered(body):
 	if (body.name == "Player" and fsm.current_state == fsm.states[STATE_NAME]):

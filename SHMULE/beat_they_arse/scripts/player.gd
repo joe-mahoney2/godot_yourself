@@ -33,7 +33,6 @@ func _process(_delta):
 
 # function that will execute every frame
 func _physics_process(delta):
-	anim_tree.advance(delta)
 	move_and_slide()
 	# Check if we are on the ground
 	if is_on_floor():

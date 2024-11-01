@@ -1161,10 +1161,10 @@ tracks/6/path = NodePath("Body/LeftLeg:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 1,
-"values": [1]
+"values": []
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -2143,10 +2143,10 @@ input_1/auto_advance = false
 input_1/reset = false
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_bhgnj"]
-input_0/name = "ground"
+input_0/name = "air"
 input_0/auto_advance = false
 input_0/reset = false
-input_1/name = "air"
+input_1/name = "ground"
 input_1/auto_advance = false
 input_1/reset = false
 
@@ -2178,7 +2178,7 @@ nodes/movement/position = Vector2(40, 20)
 nodes/movement_time/node = SubResource("AnimationNodeTimeScale_kpk25")
 nodes/movement_time/position = Vector2(-240, 160)
 nodes/output/position = Vector2(520, 40)
-node_connections = [&"in_air", 0, &"Fall", &"in_air", 1, &"Jump", &"in_air_state", 0, &"movement", &"in_air_state", 1, &"in_air", &"movement", 0, &"Idle", &"movement", 1, &"movement_time", &"movement_time", 0, &"Run", &"output", 0, &"in_air_state"]
+node_connections = [&"in_air", 0, &"Fall", &"in_air", 1, &"Jump", &"in_air_state", 0, &"in_air", &"in_air_state", 1, &"movement", &"movement", 0, &"Idle", &"movement", 1, &"movement_time", &"movement_time", 0, &"Run", &"output", 0, &"in_air_state"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t6v64"]
 atlas = ExtResource("3_gxu54")
@@ -4573,6 +4573,7 @@ script = ExtResource("1_ax62y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2, 2)
+offset = Vector2(0, -100)
 drag_vertical_enabled = true
 
 [node name="CanvasGroup" type="CanvasLayer" parent="Camera2D"]
@@ -4584,13 +4585,15 @@ offset_right = 267.0
 offset_bottom = 615.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-active = false
+process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_13p1l")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-process_mode = 4
+process_mode = 3
+active = false
+reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_13p1l")
 }
@@ -4628,37 +4631,37 @@ frame = 1
 visible = false
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1k2pp")
-animation = &"Death"
+animation = &"Run"
 frame = 1
 
 [node name="Torso" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6r022")
-animation = &"Death"
+animation = &"Run"
 frame = 1
 
 [node name="RightLeg" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_kh1ot")
-animation = &"Death"
+animation = &"Run"
 frame = 1
 
 [node name="RightArm" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_l35d6")
-animation = &"Death"
+animation = &"Run"
 frame = 1
 
 [node name="Head" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4kaef")
-animation = &"Death"
+animation = &"Run"
 frame = 1
 
 [node name="Hat" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_7mrri")
-animation = &"Death"
+animation = &"Run"
 frame = 1
 
 [node name="ShoulderMount" type="Node2D" parent="Body"]
