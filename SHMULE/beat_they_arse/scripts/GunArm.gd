@@ -49,9 +49,10 @@ func shoot():
 	
 	# check for bullet collision
 	if ray.is_colliding():
-		# spawn dust at point
-		spawn_bullet_dust()
 		# Check what the ray is colliding with
 		var hit = ray.get_collider()
 		if (hit.is_in_group("Enemy")):
 			hit.damage(1)
+		else:
+			# spawn dust at point
+			spawn_bullet_dust()

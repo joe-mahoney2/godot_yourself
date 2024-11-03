@@ -20,7 +20,7 @@ func _ready():
 
 func _physics_process(delta):
 	# Gravity for Mr Crocodile
-	if not is_on_floor() and not downed:
+	if not is_on_floor():
 		velocity.y += gravity * delta
 	move_and_slide()
 
@@ -36,9 +36,6 @@ func damage(value: int):
 	# if health is zero or below
 	if (health <= 0):
 		die()
-	else:
-		# update health bar
-		print("updating health bar")
 
 
 func die():

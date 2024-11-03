@@ -12,8 +12,10 @@ func enter():
 	croc.velocity.x = 0
 	# Play death animation
 	anim_player.play("Death")
-	# Disable all collision
-	$"../../CollisionShape2D".disabled = true
+	# Disable collision with player and other enemies
+	croc.collision_mask &= ~(1 << 0)
+	croc.collision_mask &= ~(1 << 1)
+	croc.collision_layer  &= ~(1 << 1)
 
 func exit(next_state):
 	fsm.change_to(next_state)

@@ -126,6 +126,8 @@ func damage(value: int):
 func die():
 	# set dead var
 	dead = true
+	# disable the animation tree
+	anim_tree.active = false;
 	# play death animation
 	anim_player.play("Death")
 
