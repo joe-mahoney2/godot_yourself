@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://mwtsm8g3xbvy"]
+
+[ext_resource type="Script" path="res://scripts/bullet_trail.gd" id="1_7tgrl"]
+
+[node name="BulletTrail" type="Line2D"]
+top_level = true
+z_index = -1
+script = ExtResource("1_7tgrl")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=392 format=3 uid="uid://tk43j4d3vvhm"]
+[gd_scene load_steps=398 format=3 uid="uid://tk43j4d3vvhm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ax62y"]
 [ext_resource type="Texture2D" uid="uid://dni1sqjhdbqw1" path="res://assets/sprites/Player/cowboy/Ghost.png" id="3_gxu54"]
@@ -20,7 +20,6 @@
 [sub_resource type="Animation" id="Animation_qwvmc"]
 resource_name = "Death"
 length = 1.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -213,6 +212,18 @@ tracks/15/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 }
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("GunArm:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_6twbx"]
 resource_name = "Idle"
@@ -385,6 +396,30 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("GunArm:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Body/LeftArm:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_s8o5u"]
@@ -560,6 +595,30 @@ tracks/13/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Body/LeftArm:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("GunArm:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_8xshx"]
 resource_name = "Jump"
@@ -732,6 +791,30 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("GunArm:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Body/LeftArm:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_kagip"]
@@ -1190,6 +1273,102 @@ tracks/8/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Body/LeftArm:animation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Body/Torso:animation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Body/RightLeg:animation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Body/RightArm:animation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Body/Head:animation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Body/Hat:animation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("GunArm:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Body/LeftArm:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_3o8r6"]
 resource_name = "RightJab"
@@ -1537,6 +1716,30 @@ tracks/13/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("GunArm:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Body/LeftArm:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_raha7"]
 atlas = ExtResource("10_t4pgc")
@@ -1788,6 +1991,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e10jd")
+}],
+"loop": true,
+"name": &"Hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -2108,10 +2319,211 @@ tracks/14/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_0twve"]
+resource_name = "Ghost"
+
+[sub_resource type="Animation" id="Animation_t6cmu"]
+resource_name = "Hurt"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/LeftArm:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hurt"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/LeftArm:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/LeftLeg:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hurt"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body/LeftLeg:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Body/Torso:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hurt"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Body/Torso:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Body/RightLeg:animation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hurt"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Body/RightLeg:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Body/RightArm:animation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hurt"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Body/Head:animation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hurt"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Body/RightArm:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Body/Head:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Body/Hat:animation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hurt"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Body/Hat:frame")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("GunArm:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Body/LeftArm:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_13p1l"]
 _data = {
 "Death": SubResource("Animation_qwvmc"),
 "Fall": SubResource("Animation_6twbx"),
+"Ghost": SubResource("Animation_0twve"),
+"Hurt": SubResource("Animation_t6cmu"),
 "Idle": SubResource("Animation_s8o5u"),
 "Jump": SubResource("Animation_8xshx"),
 "JumpKick": SubResource("Animation_kagip"),
@@ -2125,11 +2537,16 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ggfvp"]
 animation = &"Fall"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l42jt"]
+animation = &"Hurt"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xv0wo"]
 animation = &"Idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdp1n"]
 animation = &"Jump"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_756uw"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mwpn1"]
 animation = &"Run"
@@ -2161,24 +2578,29 @@ input_1/reset = true
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_kpk25"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vabnm"]
+graph_offset = Vector2(0, -94)
 nodes/Fall/node = SubResource("AnimationNodeAnimation_ggfvp")
-nodes/Fall/position = Vector2(40, 240)
+nodes/Fall/position = Vector2(20, 20)
+nodes/Hurt/node = SubResource("AnimationNodeAnimation_l42jt")
+nodes/Hurt/position = Vector2(-120, 560)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_xv0wo")
-nodes/Idle/position = Vector2(-380, 20)
+nodes/Idle/position = Vector2(-440, 280)
 nodes/Jump/node = SubResource("AnimationNodeAnimation_rdp1n")
-nodes/Jump/position = Vector2(40, 380)
+nodes/Jump/position = Vector2(20, 140)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_756uw")
+nodes/OneShot/position = Vector2(80, 300)
 nodes/Run/node = SubResource("AnimationNodeAnimation_mwpn1")
-nodes/Run/position = Vector2(-380, 160)
+nodes/Run/position = Vector2(-500, 440)
 nodes/in_air/node = SubResource("AnimationNodeTransition_wfd5a")
-nodes/in_air/position = Vector2(200, 260)
+nodes/in_air/position = Vector2(160, 20)
 nodes/in_air_state/node = SubResource("AnimationNodeTransition_bhgnj")
 nodes/in_air_state/position = Vector2(360, 40)
 nodes/movement/node = SubResource("AnimationNodeTransition_gye3m")
-nodes/movement/position = Vector2(40, 20)
+nodes/movement/position = Vector2(-160, 300)
 nodes/movement_time/node = SubResource("AnimationNodeTimeScale_kpk25")
-nodes/movement_time/position = Vector2(-240, 160)
+nodes/movement_time/position = Vector2(-360, 400)
 nodes/output/position = Vector2(520, 40)
-node_connections = [&"in_air", 0, &"Fall", &"in_air", 1, &"Jump", &"in_air_state", 0, &"in_air", &"in_air_state", 1, &"movement", &"movement", 0, &"Idle", &"movement", 1, &"movement_time", &"movement_time", 0, &"Run", &"output", 0, &"in_air_state"]
+node_connections = [&"OneShot", 0, &"movement", &"OneShot", 1, &"Hurt", &"in_air", 0, &"Fall", &"in_air", 1, &"Jump", &"in_air_state", 0, &"in_air", &"in_air_state", 1, &"OneShot", &"movement", 0, &"Idle", &"movement", 1, &"movement_time", &"movement_time", 0, &"Run", &"output", 0, &"in_air_state"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t6v64"]
 atlas = ExtResource("3_gxu54")
@@ -2276,6 +2698,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"Death",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Ghost",
 "speed": 5.0
 }]
 
@@ -2522,6 +2949,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lvnw")
+}],
+"loop": true,
+"name": &"Hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -2919,6 +3354,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ethp0")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2fxy6")
 }, {
 "duration": 1.0,
@@ -3304,6 +3747,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_b60ri")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wdqdn")
 }, {
 "duration": 1.0,
@@ -3677,6 +4128,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee5qo")
+}],
+"loop": true,
+"name": &"Hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -4058,6 +4517,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_76leu")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vyc0m")
 }, {
 "duration": 1.0,
@@ -4435,6 +4902,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_yqwyj")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_oib1l")
 }, {
 "duration": 1.0,
@@ -4566,7 +5041,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0aon"]
-size = Vector2(34, 90)
+size = Vector2(34, 60)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7smav"]
+friction = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_87d1s"]
+radius = 16.0312
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 15
@@ -4586,6 +5067,16 @@ offset_top = 600.0
 offset_right = 267.0
 offset_bottom = 615.0
 
+[node name="DeathLabel" type="Label" parent="Camera2D"]
+visible = false
+offset_left = -110.0
+offset_top = -150.0
+offset_right = 111.0
+offset_bottom = -63.0
+text = "Game Over Nerd"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
 libraries = {
@@ -4594,13 +5085,15 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 process_mode = 3
-active = false
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_13p1l")
 }
 tree_root = SubResource("AnimationNodeBlendTree_vabnm")
 anim_player = NodePath("../AnimationPlayer")
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0
 parameters/in_air/current_state = "falling"
 parameters/in_air/transition_request = ""
 parameters/in_air/current_index = 0
@@ -4613,6 +5106,7 @@ parameters/movement/current_index = 1
 parameters/movement_time/scale = 1.0
 
 [node name="GunArm" parent="." instance=ExtResource("11_he2ys")]
+visible = false
 position = Vector2(13, -9)
 
 [node name="Body" type="Node2D" parent="."]
@@ -4629,41 +5123,34 @@ sprite_frames = SubResource("SpriteFrames_bqii8")
 animation = &"Run"
 
 [node name="LeftArm" type="AnimatedSprite2D" parent="Body"]
-visible = false
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1k2pp")
 animation = &"Death"
-frame = 1
 
 [node name="Torso" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6r022")
 animation = &"Death"
-frame = 1
 
 [node name="RightLeg" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_kh1ot")
 animation = &"Death"
-frame = 1
 
 [node name="RightArm" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_l35d6")
 animation = &"Death"
-frame = 1
 
 [node name="Head" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4kaef")
 animation = &"Death"
-frame = 1
 
 [node name="Hat" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_7mrri")
 animation = &"Death"
-frame = 1
 
 [node name="ShoulderMount" type="Node2D" parent="Body"]
 position = Vector2(13, -9)
@@ -4687,6 +5174,18 @@ script = ExtResource("16_5sw3x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
+position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_k0aon")
 
+[node name="HeadGuard" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_7smav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadGuard"]
+visible = false
+position = Vector2(1, -38)
+shape = SubResource("CircleShape2D_87d1s")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

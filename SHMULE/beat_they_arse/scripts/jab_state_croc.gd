@@ -26,7 +26,7 @@ func _on_animation_player_animation_finished(anim_name):
 	if (fsm.current_state == fsm.states[STATE_NAME]):
 		# get player distance
 		var distance = player.position - self.global_position
-		if (player_in_jab_range):
+		if (player_in_jab_range and !player.dead):
 			# Get next animation
 			if (anim_name == "Jab1"):
 				# Pick Jab1 or Jab2, weighted

@@ -26,6 +26,8 @@ func _process(delta):
 		body.scale.x = -1
 	# run
 	croc.velocity.x = distance.normalized().x * croc.SPEED
+	if (player.dead):
+		exit()
 
 func _on_player_detection_body_exited(body):
 	# lost player, return to idle

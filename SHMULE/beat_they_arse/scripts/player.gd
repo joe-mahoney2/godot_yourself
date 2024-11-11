@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -400.0
 var can_double_jump = true
 var direction = 0
 var dead = false
+var in_air = false
 
 var dust_scene = preload("res://scenes/effects/dust.tscn")
 
@@ -27,6 +28,8 @@ func _ready():
 	health_bar.init_health(health)
 
 func _process(_delta):
+	if dead:
+		return
 	direction = Input.get_axis("ui_left", "ui_right")
 	# update direction of animation facing
 	update_facing_direction()
@@ -34,18 +37,26 @@ func _process(_delta):
 # function that will execute every frame
 func _physics_process(delta):
 	move_and_slide()
+	if dead:
+		return
 	# Check if we are on the ground
 	if is_on_floor():
 		# Reset double jump
 		can_double_jump = true
 		# Set animation input
 		anim_tree.set("parameters/in_air_state/transition_request", "ground")
+		# Begin hack job
+		if (in_air): # we just landed
+			in_air = false
+			anim_tree.active = false
+		else: # We have BEEN landed
+			anim_tree.active = true # end hack job
 	else:
+		in_air = true
 		# add gravity
 		velocity.y += gravity * delta
 		# set animation input
 		anim_tree.set("parameters/in_air_state/transition_request", "air")
-
 	# handle the jump
 	if Input.is_action_just_pressed("ui_accept"):
 		jump()
@@ -120,16 +131,20 @@ func damage(value: int):
 	if (health <= 0):
 		die()
 	else:
-		# update health bar
-		print("updating health bar")
+		# play hurt
+		anim_tree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 func die():
 	# set dead var
+	velocity = Vector2(0,0)
 	dead = true
 	# disable the animation tree
 	anim_tree.active = false;
 	# play death animation
+	print("Playing death animation")
 	anim_player.play("Death")
+	# Game is over
+	$Camera2D/DeathLabel.visible = true
 
 func spawn_dust():
 	var dust = dust_scene.instantiate()

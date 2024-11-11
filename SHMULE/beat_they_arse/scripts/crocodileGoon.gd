@@ -39,6 +39,8 @@ func damage(value: int):
 
 
 func die():
+	
+	velocity = Vector2(0,0)
 	print("i am dead")
 	downed = true
 	emit_signal("dead")
