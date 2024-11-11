@@ -1,0 +1,3 @@
+res://sprites/Slag_man/Slag_man_char.gd
+res://classes/types/Projectile_ctl_t.gd
+res://classes/interface/Projectile_ctl.gd

@@ -4,6 +4,7 @@ extends Node2D
 var interface_ctl       = Interface_ctl.new()
 var interface_body_ctl  = Body_ctl.new()
 var animation_ctl       = Animation_ctl.new()  
+var projectile_ctl      = Projectile_ctl.new()
 
 var player_collider_ctl = Collider_ctl.new()
 var weapon_collider_ctl = Collider_ctl.new()
@@ -35,6 +36,15 @@ func _ready():
 		"weapon")
 		
 	player_collider_ctl.set_active("NORMAL")
+	
+	#projectile interface initialization
+	var proj_ctl = projectile_ctl_t.new()
+	proj_ctl.projectile_id = "SHURIKEN"
+	proj_ctl.damage        = 10
+	proj_ctl.vel_x         = 400
+	
+	projectile_ctl.projectile_ctl = proj_ctl
+
 	pass
 	
 func _process(delta):
@@ -62,6 +72,8 @@ func bot_frame():
 	
 	#child scenes
 	#projectiles 
+	projectile_ctl.update(interface_ctl_out)
+	
 	
 	
 	#collider process
