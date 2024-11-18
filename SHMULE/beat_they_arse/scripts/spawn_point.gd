@@ -1,6 +1,7 @@
 extends Marker2D
 
 var croc_scene = preload("res://scenes/enemies/crocodileGoon.tscn")
+@onready var timer = $Timer # used by saloon parent node
 
 signal croc_spawned
 

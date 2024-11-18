@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1px74gryiqng"]
+[gd_scene load_steps=15 format=3 uid="uid://c1px74gryiqng"]
 
 [ext_resource type="Texture2D" uid="uid://tavhegdt1xoo" path="res://assets/sprites/backgrounds/western/Saloon.png" id="1_usepl"]
 [ext_resource type="Script" path="res://scripts/Saloon.gd" id="1_yqewi"]
@@ -6,6 +6,68 @@
 [ext_resource type="Texture2D" uid="uid://d2kuq4q3c24as" path="res://assets/sprites/backgrounds/western/CrocHead2.png" id="4_7mgfr"]
 [ext_resource type="PackedScene" uid="uid://qwp24lffxigt" path="res://scenes/enemies/spawn_point.tscn" id="4_hqm4n"]
 [ext_resource type="Texture2D" uid="uid://dfja5xo1t63ru" path="res://assets/sprites/backgrounds/western/Doors.png" id="5_to1vp"]
+
+[sub_resource type="Animation" id="Animation_5xihm"]
+resource_name = "Open"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Building/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Open"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Building/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_dayuw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Building/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Open"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Building/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ae23f"]
+_data = {
+"Open": SubResource("Animation_5xihm"),
+"RESET": SubResource("Animation_dayuw")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0yvrk"]
 atlas = ExtResource("5_to1vp")
@@ -36,91 +98,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_5xihm"]
-resource_name = "Open"
-length = 0.4
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Open"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 1, 0]
-}
-
-[sub_resource type="Animation" id="Animation_dayuw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Open"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ae23f"]
-_data = {
-"Open": SubResource("Animation_5xihm"),
-"RESET": SubResource("Animation_dayuw")
-}
+[sub_resource type="CircleShape2D" id="CircleShape2D_exy6n"]
+radius = 609.067
 
 [node name="Saloon" type="Node2D"]
 script = ExtResource("1_yqewi")
-
-[node name="Background" type="Sprite2D" parent="."]
-z_index = -1
-scale = Vector2(5, 5)
-texture = ExtResource("1_usepl")
-
-[node name="Items" type="Sprite2D" parent="."]
-z_index = -1
-scale = Vector2(5, 5)
-texture = ExtResource("2_rqlqj")
-
-[node name="CrocHead" type="Sprite2D" parent="."]
-z_index = -1
-scale = Vector2(5, 5)
-texture = ExtResource("4_7mgfr")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = -1
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_dohvj")
-animation = &"Open"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -130,4 +112,32 @@ libraries = {
 [node name="SpawnPoint" parent="." instance=ExtResource("4_hqm4n")]
 position = Vector2(0, 134)
 
+[node name="Building" type="Node2D" parent="."]
+scale = Vector2(5, 5)
+
+[node name="Background" type="Sprite2D" parent="Building"]
+z_index = -1
+texture = ExtResource("1_usepl")
+
+[node name="Items" type="Sprite2D" parent="Building"]
+z_index = -1
+texture = ExtResource("2_rqlqj")
+
+[node name="CrocHead" type="Sprite2D" parent="Building"]
+z_index = -1
+texture = ExtResource("4_7mgfr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Building"]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_dohvj")
+animation = &"Open"
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+visible = false
+shape = SubResource("CircleShape2D_exy6n")
+
 [connection signal="croc_spawned" from="SpawnPoint" to="." method="_on_spawn_point_croc_spawned"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

@@ -75,7 +75,7 @@ texture = ExtResource("7_6gc1m")
 
 [node name="Player" parent="." instance=ExtResource("1_idu6p")]
 unique_name_in_owner = true
-position = Vector2(454, 244)
+position = Vector2(238, 252)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -97,4 +97,7 @@ position = Vector2(-89.5, -884.5)
 shape = SubResource("RectangleShape2D_hpoos")
 
 [node name="Saloon" parent="." instance=ExtResource("10_ne1f3")]
-position = Vector2(1102, 159)
+position = Vector2(1474, 164)
+
+[node name="Saloon2" parent="." instance=ExtResource("10_ne1f3")]
+position = Vector2(746, 164)
