@@ -12,7 +12,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rphqn"]
 radius = 24.0
-height = 86.0
+height = 88.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vvxyd"]
 radius = 1.66667
@@ -363,7 +363,7 @@ _data = {
 radius = 463.4
 
 [node name="CrocodileGoon" type="CharacterBody2D" groups=["Enemy"]]
-collision_layer = 18
+collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_vn06k")
 

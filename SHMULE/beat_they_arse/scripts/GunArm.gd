@@ -6,7 +6,7 @@ extends Node2D
 @onready var ray: RayCast2D = $RayCast2D
 
 var muzzle_flash = preload("res://scenes/effects/muzzle_flash.tscn")
-var bullet_dust = preload("res://scenes/effects/bullet_dust.tscn")
+var bullet_projectile = preload("res://scenes/effects/bullet_projectile.tscn")
 var direction: Vector2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,25 +59,20 @@ func spawn_trail():
 	await tween.finished
 	line.queue_free()
 	
-func spawn_bullet_dust():
-	var bull_dust = bullet_dust.instantiate()
-	bull_dust.global_position = ray.get_collision_point()
-	get_parent().get_parent().add_child(bull_dust)
+
 
 func shoot():
 	# spawn muzzle flare
 	spawn_flash()
 	# player knockback (remove for now)
 	# character_body.velocity -= direction * 200
-	# Spawn bullet trail
-	#spawn_trail()
 	
-	# check for bullet collision
-	if ray.is_colliding():
-		# Check what the ray is colliding with
-		var hit = ray.get_collider()
-		if (hit.is_in_group("Enemy")):
-			hit.damage(1)
-		else:
-			# spawn dust at point
-			spawn_bullet_dust()
+	# spawn bullet
+	var bullet = bullet_projectile.instantiate()
+	# adjust bullet angle 
+	bullet.rotation = rotation
+	# set bullet position
+	bullet.global_position = tip.global_position
+	# add to scene
+	get_parent().add_child(bullet)
+	

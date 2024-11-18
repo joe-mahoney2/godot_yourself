@@ -6,6 +6,7 @@ var can_double_jump = true
 var direction = 0
 var dead = false
 var in_air = false
+var bullets : int = 6
 
 var dust_scene = preload("res://scenes/effects/dust.tscn")
 
