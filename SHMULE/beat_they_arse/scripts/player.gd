@@ -152,3 +152,8 @@ func spawn_dust():
 	dust.position = self.position
 	dust.position.y += 20
 	get_parent().add_child(dust)
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if (anim_name == "Death"):
+		anim_player.play("GhostHover")

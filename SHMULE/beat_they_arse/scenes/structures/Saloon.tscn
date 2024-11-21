@@ -110,7 +110,7 @@ libraries = {
 }
 
 [node name="SpawnPoint" parent="." instance=ExtResource("4_hqm4n")]
-position = Vector2(0, 134)
+position = Vector2(0, 125)
 
 [node name="Building" type="Node2D" parent="."]
 scale = Vector2(5, 5)
