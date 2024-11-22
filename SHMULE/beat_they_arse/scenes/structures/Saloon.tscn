@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1px74gryiqng"]
+[gd_scene load_steps=16 format=3 uid="uid://c1px74gryiqng"]
 
 [ext_resource type="Texture2D" uid="uid://tavhegdt1xoo" path="res://assets/sprites/backgrounds/western/Saloon.png" id="1_usepl"]
 [ext_resource type="Script" path="res://scripts/Saloon.gd" id="1_yqewi"]
@@ -69,6 +69,10 @@ _data = {
 "RESET": SubResource("Animation_dayuw")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mujq0"]
+radius = 16.0
+height = 56.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0yvrk"]
 atlas = ExtResource("5_to1vp")
 region = Rect2(0, 0, 128, 64)
@@ -112,6 +116,13 @@ libraries = {
 [node name="SpawnPoint" parent="." instance=ExtResource("4_hqm4n")]
 position = Vector2(0, 125)
 
+[node name="SpawnBlocked" type="Area2D" parent="SpawnPoint"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnPoint/SpawnBlocked"]
+visible = false
+shape = SubResource("CapsuleShape2D_mujq0")
+
 [node name="Building" type="Node2D" parent="."]
 scale = Vector2(5, 5)
 
@@ -139,5 +150,7 @@ visible = false
 shape = SubResource("CircleShape2D_exy6n")
 
 [connection signal="croc_spawned" from="SpawnPoint" to="." method="_on_spawn_point_croc_spawned"]
+[connection signal="body_entered" from="SpawnPoint/SpawnBlocked" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="SpawnPoint/SpawnBlocked" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
