@@ -2850,6 +2850,7 @@ input_1/reset = true
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_kpk25"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vabnm"]
+graph_offset = Vector2(-573.118, 193.33)
 nodes/Fall/node = SubResource("AnimationNodeAnimation_ggfvp")
 nodes/Fall/position = Vector2(20, 20)
 nodes/Hurt/node = SubResource("AnimationNodeAnimation_l42jt")

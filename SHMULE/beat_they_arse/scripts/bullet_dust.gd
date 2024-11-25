@@ -1,4 +1,4 @@
-extends "res://effect.gd"
+extends "res://scripts/effect.gd"
 
 
 func _ready():

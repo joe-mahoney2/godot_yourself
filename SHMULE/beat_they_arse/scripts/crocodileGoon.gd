@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var anim_player = $AnimationPlayer
-@onready var player = get_node("../Player")
+@onready var player = $"/root/Global".player
 @onready var health_bar = $HealthBar
 
 var SPEED = 150
