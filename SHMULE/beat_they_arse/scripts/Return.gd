@@ -15,7 +15,7 @@ func _physics_process(delta):
 	if at_spawn():
 		exit("Idle")
 	else:
-		vulture.head_toward(vulture.spawn_location)
+		vulture.head_straight_to(vulture.spawn_location)
 
 func exit(next_state):
 	fsm.change_to(next_state)
@@ -23,8 +23,11 @@ func exit(next_state):
 func at_spawn() -> bool:
 	# distance to spawn
 	var dist : Vector2 = self.global_position - vulture.spawn_location
+	
 	# If within certain small distance of spawn
-	if dist < Vector2(5,5):
+	if dist.length() < 5:
+		print(dist)
+		print("We are close enough")
 		return true
 	else:
 		return false

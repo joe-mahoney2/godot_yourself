@@ -104,4 +104,25 @@ position = Vector2(1474, 164)
 position = Vector2(746, 164)
 
 [node name="Vulture" parent="." instance=ExtResource("10_2v1ws")]
-position = Vector2(890, 28)
+position = Vector2(919, 42)
+
+[node name="Vulture2" parent="." instance=ExtResource("10_2v1ws")]
+position = Vector2(852, 44)
+
+[node name="Vulture3" parent="." instance=ExtResource("10_2v1ws")]
+position = Vector2(646, 251)
+
+[node name="Vulture4" parent="." instance=ExtResource("10_2v1ws")]
+position = Vector2(1004, 225)
+
+[node name="Vulture5" parent="." instance=ExtResource("10_2v1ws")]
+position = Vector2(1239, 149)
+
+[node name="Vulture6" parent="." instance=ExtResource("10_2v1ws")]
+position = Vector2(1619, 41)
+
+[node name="Vulture7" parent="." instance=ExtResource("10_2v1ws")]
+position = Vector2(1341, 41)
+
+[node name="Vulture8" parent="." instance=ExtResource("10_2v1ws")]
+position = Vector2(1710, 124)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bgxq0hlglab18"]
+[gd_scene load_steps=21 format=3 uid="uid://bgxq0hlglab18"]
 
 [ext_resource type="Texture2D" uid="uid://cr07yhhfpu7lc" path="res://assets/sprites/enemies/Vulture-Sheet.png" id="1_75osx"]
 [ext_resource type="Script" path="res://scripts/vulture.gd" id="1_bcsou"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/Attack_Vulture.gd" id="5_g4rqp"]
 [ext_resource type="Script" path="res://scripts/Die_Vulture.gd" id="6_bk74s"]
 [ext_resource type="Script" path="res://scripts/Return.gd" id="8_trivn"]
+[ext_resource type="PackedScene" uid="uid://drlehh8oij8db" path="res://scenes/effects/HealthBar.tscn" id="9_8em2m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m8jeh"]
 height = 52.3259
@@ -79,7 +80,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_1bdef"]
 resource_name = "Die"
-length = 0.1
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -375,9 +376,6 @@ tracks/4/keys = {
 "values": [10.0]
 }
 
-[sub_resource type="Animation" id="Animation_up1lu"]
-length = 0.001
-
 [sub_resource type="Animation" id="Animation_xqvh3"]
 resource_name = "Idle3"
 length = 0.1
@@ -442,6 +440,9 @@ tracks/4/keys = {
 "values": [10.0]
 }
 
+[sub_resource type="Animation" id="Animation_up1lu"]
+length = 0.001
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eblh7"]
 _data = {
 "Attack": SubResource("Animation_fcyje"),
@@ -464,18 +465,18 @@ script = ExtResource("1_bcsou")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(0, -10)
-rotation = -0.785398
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_m8jeh")
 
 [node name="Body" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Body"]
-position = Vector2(2, 0)
+position = Vector2(6, 0)
 scale = Vector2(3, 3)
 texture = ExtResource("1_75osx")
 hframes = 3
 vframes = 5
+frame = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -506,6 +507,14 @@ script = ExtResource("8_trivn")
 visible = false
 shape = SubResource("CircleShape2D_dswbg")
 
+[node name="HealthBar" parent="." instance=ExtResource("9_8em2m")]
+offset_left = -42.0
+offset_top = -55.0
+offset_right = 43.0
+offset_bottom = -47.0
+
+[connection signal="dead" from="." to="StateMachines/Die" method="_on_vulture_dead"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachines/Idle" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachines/Die" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="PlayerDetection" to="StateMachines/Idle" method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="StateMachines/Chase" method="_on_player_detection_body_exited"]
