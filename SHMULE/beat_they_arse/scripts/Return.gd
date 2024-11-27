@@ -26,7 +26,6 @@ func at_spawn() -> bool:
 	
 	# If within certain small distance of spawn
 	if dist.length() < 5:
-		print(dist)
 		print("We are close enough")
 		return true
 	else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bgxq0hlglab18"]
+[gd_scene load_steps=22 format=3 uid="uid://bgxq0hlglab18"]
 
 [ext_resource type="Texture2D" uid="uid://cr07yhhfpu7lc" path="res://assets/sprites/enemies/Vulture-Sheet.png" id="1_75osx"]
 [ext_resource type="Script" path="res://scripts/vulture.gd" id="1_bcsou"]
@@ -12,6 +12,8 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m8jeh"]
 height = 52.3259
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_veo6c"]
 
 [sub_resource type="Animation" id="Animation_fcyje"]
 resource_name = "Attack"
@@ -465,7 +467,7 @@ script = ExtResource("1_bcsou")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-rotation = 1.5708
+rotation = -0.785398
 shape = SubResource("CapsuleShape2D_m8jeh")
 
 [node name="Body" type="Node2D" parent="."]
@@ -476,7 +478,13 @@ scale = Vector2(3, 3)
 texture = ExtResource("1_75osx")
 hframes = 3
 vframes = 5
-frame = 12
+frame = 6
+
+[node name="DamageArea" type="Area2D" parent="Body"]
+position = Vector2(-15, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/DamageArea"]
+shape = SubResource("CircleShape2D_veo6c")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -514,6 +522,8 @@ offset_right = 43.0
 offset_bottom = -47.0
 
 [connection signal="dead" from="." to="StateMachines/Die" method="_on_vulture_dead"]
+[connection signal="player_in_range" from="." to="StateMachines/Chase" method="_on_vulture_player_in_range"]
+[connection signal="body_entered" from="Body/DamageArea" to="StateMachines/Attack" method="_on_node_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachines/Idle" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachines/Die" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="PlayerDetection" to="StateMachines/Idle" method="_on_player_detection_body_entered"]

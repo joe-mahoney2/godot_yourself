@@ -17,6 +17,7 @@ signal dead
 func _ready():
 	health = 2
 	health_bar.init_health(health)
+	health_bar.visible = false
 
 func _physics_process(delta):
 	# Gravity for Mr Crocodile
@@ -29,6 +30,7 @@ func _process(delta):
 	pass
 
 func damage(value: int):
+	health_bar.visible = true
 	health -= value
 	if not downed:
 		emit_signal("hurt")

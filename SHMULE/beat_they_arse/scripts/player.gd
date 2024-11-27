@@ -39,6 +39,8 @@ func _process(_delta):
 func _physics_process(delta):
 	move_and_slide()
 	if dead:
+		# apply physcis only and quit
+		velocity.y += gravity * delta
 		return
 	# Check if we are on the ground
 	if is_on_floor():

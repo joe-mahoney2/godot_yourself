@@ -10,10 +10,12 @@ var health : int
 var is_dead : bool
 
 @onready var body = $Body
+@onready var body_col_shape = $CollisionShape2D
 @onready var health_bar = $HealthBar
 
 signal hurt
 signal dead
+signal player_in_range
 
 
 func _ready():
@@ -22,6 +24,7 @@ func _ready():
 	spawn_location = self.global_position
 	health = 2
 	health_bar.init_health(health)
+	health_bar.visible = false
 #
 #func _physics_process(delta):
 	## Add the gravity.
@@ -44,6 +47,8 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func damage(value: int):
+	# if health bar isn't showing, display
+	health_bar.visible = true
 	health -= value
 	if not is_dead:
 		emit_signal("hurt")
@@ -54,11 +59,14 @@ func damage(value: int):
 	
 func head_toward(tgt_point : Vector2):
 	var distance = tgt_point - self.global_position
+	in_range_check(distance)
 	# flip if we need to
 	if distance.x > 0:
 		body.scale.x = -1
+		body_col_shape.scale.x = -1
 	elif distance.x < 0:
 		body.scale.x = 1
+		body_col_shape.scale.x = 1
 	# Advance towards player horizontally
 	velocity.y = 0
 	velocity.x = distance.normalized().x * SPEED
@@ -68,11 +76,17 @@ func head_straight_to(tgt_point : Vector2):
 	# flip if we need to
 	if distance.x > 0:
 		body.scale.x = -1
+		body_col_shape.scale.x = -1
 	elif distance.x < 0:
 		body.scale.x = 1
+		body_col_shape.scale.x = 1
 	# Advance towards player
 	velocity = distance.normalized() * SPEED
 
 func die():
 	is_dead = true
 	emit_signal("dead")
+
+func in_range_check(dist : Vector2):
+	if (abs(dist.x) < 100):
+		emit_signal("player_in_range")

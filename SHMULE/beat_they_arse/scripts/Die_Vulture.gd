@@ -13,7 +13,7 @@ func enter():
 	# disable collision
 	vulture.collision_mask &= ~(1 << 0)
 	vulture.collision_mask &= ~(1 << 1)
-	vulture.collision_layer  &= ~(1 << 1)
+	vulture.collision_layer &= ~(1 << 1)
 
 func _physics_process(delta):
 	if vulture.is_on_floor():
