@@ -12,7 +12,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_ejuwn")
 
 [node name="GunTip" type="Marker2D" parent="."]
-position = Vector2(48, 2)
+position = Vector2(48, 0)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 visible = false

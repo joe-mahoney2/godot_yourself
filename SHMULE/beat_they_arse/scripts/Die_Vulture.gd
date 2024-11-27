@@ -15,6 +15,8 @@ func enter():
 	vulture.collision_mask &= ~(1 << 1)
 	vulture.collision_layer &= ~(1 << 1)
 
+	vulture.collision_mask |= (1 << 2) # walls
+
 func _physics_process(delta):
 	if vulture.is_on_floor():
 		vulture.velocity.x = 0

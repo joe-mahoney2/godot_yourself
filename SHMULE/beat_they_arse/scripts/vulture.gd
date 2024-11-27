@@ -17,10 +17,8 @@ signal hurt
 signal dead
 signal player_in_range
 
-
 func _ready():
 	# Register spawn position
-	print("Setting spawn to ", self.global_position)
 	spawn_location = self.global_position
 	health = 2
 	health_bar.init_health(health)

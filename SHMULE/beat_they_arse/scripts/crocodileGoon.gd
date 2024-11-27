@@ -39,9 +39,7 @@ func damage(value: int):
 	if (health <= 0):
 		die()
 
-
 func die():
-	
 	velocity = Vector2(0,0)
 	print("i am dead")
 	downed = true

@@ -125,6 +125,19 @@ func update_facing_direction():
 		body.scale.x = -1
 		gun_arm.position.x = -13
 		gun_arm.image.flip_v = true
+	_update_arm_rotation()
+
+func _update_arm_rotation():
+	# get mouse position in global coords
+	var mouse_position = get_global_mouse_position()
+	# Calculate the direction vector from the shoulder to the mouse
+	var mouse_direction = (mouse_position - shoulder_mount.global_position).normalized()
+	
+	# Calculate the rotation angle
+	var angle = mouse_direction.angle()
+	
+	# Apply the rotation to the arm
+	gun_arm.rotation = angle
 
 func damage(value: int):
 	health -= value
@@ -154,7 +167,6 @@ func spawn_dust():
 	dust.position = self.position
 	dust.position.y += 20
 	get_parent().add_child(dust)
-
 
 func _on_animation_player_animation_finished(anim_name):
 	if (anim_name == "Death"):

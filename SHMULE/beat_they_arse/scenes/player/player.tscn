@@ -5316,7 +5316,7 @@ animations = [{
 size = Vector2(34, 60)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 31
+collision_mask = 15
 script = ExtResource("1_ax62y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -5395,38 +5395,32 @@ animation = &"Run"
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1k2pp")
 animation = &"Death"
-frame = 1
 
 [node name="Torso" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6r022")
 animation = &"Death"
-frame = 1
 
 [node name="RightLeg" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_kh1ot")
 animation = &"Death"
-frame = 1
 
 [node name="RightArm" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_l35d6")
 animation = &"Death"
-frame = 1
 
 [node name="Head" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4kaef")
 animation = &"Death"
-frame = 1
 
 [node name="Hat" type="AnimatedSprite2D" parent="Body"]
 z_index = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_7mrri")
 animation = &"Death"
-frame = 1
 
 [node name="ShoulderMount" type="Node2D" parent="Body"]
 position = Vector2(13, -9)

@@ -16,7 +16,9 @@ func enter():
 	print("Caw caw!")
 	anim_player.play("Attack")
 	# i am just going to disable all collision
-	body_collision.disabled = true
+	vulture.collision_mask &= ~(1 << 0) #Player
+	vulture.collision_mask &= ~(1 << 1) #Enemy
+	vulture.collision_mask &= ~(1 << 2) #Walls
 	
 	# target pos
 	attack_pos = player.global_position
@@ -25,7 +27,8 @@ func enter():
 	end_pos = vulture.global_position
 	end_pos.x += 2 * x_distance
 	# Handle edge cases
-	end_pos.x = max(end_pos.x, 0)
+	end_pos.x = max(end_pos.x, 10)
+	print(end_pos.x)
 	end_pos.y = attack_pos.y - (randi() % 151 + 50)
 
 	
@@ -43,7 +46,9 @@ func _process(delta):
 	
 
 func exit():
-	body_collision.disabled = false
+	vulture.collision_mask |= (1 << 0) # player
+	vulture.collision_mask |= (1 << 1) # enemies
+	vulture.collision_mask |= (1 << 2) # walls
 	fsm.back()
 
 func _on_node_body_entered(body):

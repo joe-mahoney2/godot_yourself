@@ -7,31 +7,14 @@ extends Node2D
 
 var muzzle_flash = preload("res://scenes/effects/muzzle_flash.tscn")
 var bullet_projectile = preload("res://scenes/effects/bullet_projectile.tscn")
-var direction: Vector2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if character_body.dead:
 		return
-	_update_arm_rotation()
 	
 	if Input.is_action_just_pressed("left_click"):
 		shoot()
-
-func _update_arm_rotation():
-	var shoulder_position = character_body.shoulder_mount.global_position
-
-	# get mouse position in global coords
-	var mouse_position = get_global_mouse_position()
-	
-	# Calculate the direction vector from the shoulder to the mouse
-	direction = (mouse_position - shoulder_position).normalized()
-	
-	# Calculate the rotation angle
-	var angle = direction.angle()
-	
-	# Apply the rotation to the arm
-	rotation = angle
 	
 func spawn_flash():
 	var flash = muzzle_flash.instantiate()
@@ -58,8 +41,6 @@ func spawn_trail():
 	
 	await tween.finished
 	line.queue_free()
-	
-
 
 func shoot():
 	# spawn muzzle flare
@@ -69,10 +50,9 @@ func shoot():
 	
 	# spawn bullet
 	var bullet = bullet_projectile.instantiate()
-	# adjust bullet angle 
-	bullet.rotation = rotation
 	# set bullet position
 	bullet.global_position = tip.global_position
+	bullet.rotation = rotation
 	# add to scene
 	get_parent().add_child(bullet)
 	

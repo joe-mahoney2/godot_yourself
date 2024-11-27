@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/global.gd"
 
+[display]
+
+mouse_cursor/custom_image="res://assets/Cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2(9, 9)
+
 [input]
 
 ui_left={
