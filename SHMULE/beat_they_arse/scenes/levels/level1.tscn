@@ -23,6 +23,7 @@ script = ExtResource("1_upljj")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+scale = Vector2(4, 4)
 motion_mirroring = Vector2(2016, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]

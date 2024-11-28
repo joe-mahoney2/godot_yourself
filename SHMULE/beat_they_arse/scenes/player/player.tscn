@@ -1,4 +1,4 @@
-[gd_scene load_steps=397 format=3 uid="uid://tk43j4d3vvhm"]
+[gd_scene load_steps=400 format=3 uid="uid://tk43j4d3vvhm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ax62y"]
 [ext_resource type="Texture2D" uid="uid://dni1sqjhdbqw1" path="res://assets/sprites/Player/cowboy/Ghost.png" id="3_gxu54"]
@@ -1839,6 +1839,30 @@ tracks/18/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Body/Punch Box/CollisionShape2D:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Body/Punch Box/CollisionShape2D:disabled")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_3o8r6"]
 resource_name = "RightJab"
@@ -2011,6 +2035,30 @@ tracks/13/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 1]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Body/Punch Box/CollisionShape2D:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Body/Punch Box/CollisionShape2D:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(9, 0), Vector2(31, -6), Vector2(25, -3), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ybx5l"]
@@ -2806,6 +2854,9 @@ _data = {
 "RunBackwards": SubResource("Animation_wg8v0")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w62q6"]
+animation = &"RightJab"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ggfvp"]
 animation = &"Fall"
 
@@ -2817,6 +2868,8 @@ animation = &"Idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdp1n"]
 animation = &"Jump"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_6n688"]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_756uw"]
 
@@ -2850,21 +2903,25 @@ input_1/reset = true
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_kpk25"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vabnm"]
-graph_offset = Vector2(-573.118, 193.33)
+graph_offset = Vector2(-286.282, 156.003)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_w62q6")
+nodes/Animation/position = Vector2(-10, 530)
 nodes/Fall/node = SubResource("AnimationNodeAnimation_ggfvp")
-nodes/Fall/position = Vector2(20, 20)
+nodes/Fall/position = Vector2(60, -60)
 nodes/Hurt/node = SubResource("AnimationNodeAnimation_l42jt")
-nodes/Hurt/position = Vector2(-120, 560)
+nodes/Hurt/position = Vector2(-170, 530)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_xv0wo")
 nodes/Idle/position = Vector2(-440, 280)
 nodes/Jump/node = SubResource("AnimationNodeAnimation_rdp1n")
-nodes/Jump/position = Vector2(20, 140)
+nodes/Jump/position = Vector2(60, 70)
 nodes/OneShot/node = SubResource("AnimationNodeOneShot_756uw")
-nodes/OneShot/position = Vector2(80, 300)
+nodes/OneShot/position = Vector2(10, 300)
+"nodes/OneShot 2/node" = SubResource("AnimationNodeOneShot_6n688")
+"nodes/OneShot 2/position" = Vector2(210, 300)
 nodes/Run/node = SubResource("AnimationNodeAnimation_mwpn1")
 nodes/Run/position = Vector2(-500, 440)
 nodes/in_air/node = SubResource("AnimationNodeTransition_wfd5a")
-nodes/in_air/position = Vector2(160, 20)
+nodes/in_air/position = Vector2(210, -40)
 nodes/in_air_state/node = SubResource("AnimationNodeTransition_bhgnj")
 nodes/in_air_state/position = Vector2(360, 40)
 nodes/movement/node = SubResource("AnimationNodeTransition_gye3m")
@@ -2872,7 +2929,7 @@ nodes/movement/position = Vector2(-160, 300)
 nodes/movement_time/node = SubResource("AnimationNodeTimeScale_kpk25")
 nodes/movement_time/position = Vector2(-360, 400)
 nodes/output/position = Vector2(520, 40)
-node_connections = [&"OneShot", 0, &"movement", &"OneShot", 1, &"Hurt", &"in_air", 0, &"Fall", &"in_air", 1, &"Jump", &"in_air_state", 0, &"in_air", &"in_air_state", 1, &"OneShot", &"movement", 0, &"Idle", &"movement", 1, &"movement_time", &"movement_time", 0, &"Run", &"output", 0, &"in_air_state"]
+node_connections = [&"OneShot", 0, &"movement", &"OneShot", 1, &"Hurt", &"OneShot 2", 0, &"OneShot", &"OneShot 2", 1, &"Animation", &"in_air", 0, &"Fall", &"in_air", 1, &"Jump", &"in_air_state", 0, &"in_air", &"in_air_state", 1, &"OneShot 2", &"movement", 0, &"Idle", &"movement", 1, &"movement_time", &"movement_time", 0, &"Run", &"output", 0, &"in_air_state"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t6v64"]
 atlas = ExtResource("3_gxu54")
@@ -5312,6 +5369,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evg3j"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0aon"]
 size = Vector2(34, 60)
 
@@ -5351,7 +5410,6 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 process_mode = 3
-active = false
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_13p1l")
@@ -5361,10 +5419,13 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/OneShot/active = false
 parameters/OneShot/internal_active = false
 parameters/OneShot/request = 0
-parameters/in_air/current_state = "falling"
+"parameters/OneShot 2/active" = false
+"parameters/OneShot 2/internal_active" = false
+"parameters/OneShot 2/request" = 0
+parameters/in_air/current_state = "jumping"
 parameters/in_air/transition_request = ""
-parameters/in_air/current_index = 0
-parameters/in_air_state/current_state = "air"
+parameters/in_air/current_index = 1
+parameters/in_air_state/current_state = "ground"
 parameters/in_air_state/transition_request = ""
 parameters/in_air_state/current_index = 1
 parameters/movement/current_state = "run"
@@ -5390,6 +5451,7 @@ frame = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_bqii8")
 animation = &"Run"
+frame = 3
 
 [node name="LeftArm" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
@@ -5425,6 +5487,14 @@ animation = &"Death"
 [node name="ShoulderMount" type="Node2D" parent="Body"]
 position = Vector2(13, -9)
 
+[node name="Punch Box" type="Area2D" parent="Body"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Punch Box"]
+shape = SubResource("RectangleShape2D_evg3j")
+disabled = true
+
 [node name="StateMachines" type="Node2D" parent="."]
 
 [node name="idle_state" type="Node2D" parent="StateMachines"]
@@ -5449,3 +5519,4 @@ shape = SubResource("RectangleShape2D_k0aon")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
+[connection signal="body_entered" from="Body/Punch Box" to="." method="_on_punch_box_body_entered"]

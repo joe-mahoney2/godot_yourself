@@ -96,7 +96,7 @@ func jump():
 		anim_tree.set("parameters/in_air/transition_request", "jumping")
 
 func attack():
-	pass
+	anim_tree.set("parameters/OneShot 2/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	## check if we are in the time window for a second attack
 	#if anim_sprite.animation == "RightJab" and anim_sprite.frame in [2, 4]:
 		#anim_tree["parameters/conditions/attack_again"] = true
@@ -171,3 +171,8 @@ func spawn_dust():
 func _on_animation_player_animation_finished(anim_name):
 	if (anim_name == "Death"):
 		anim_player.play("GhostHover")
+
+
+func _on_punch_box_body_entered(body):
+	if body.is_in_group("Enemy"):
+		body.damage(2)
