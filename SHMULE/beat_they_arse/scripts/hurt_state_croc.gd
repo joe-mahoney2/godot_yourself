@@ -13,8 +13,13 @@ func enter():
 	anim_player.play("Hurt")
 
 func exit():
+	if fsm.history[fsm.history.size() - 1] == "idle_state":
+		# we have to pop and then go to chase
+		fsm.back()
+		fsm.change_to("chase_state")
 	# Go back to the last state
-	fsm.back()
+	else:
+		fsm.back()
 
 func _on_animation_player_animation_finished(anim_name):
 	if (anim_name == "Hurt"):

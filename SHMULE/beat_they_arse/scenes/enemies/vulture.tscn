@@ -523,6 +523,7 @@ offset_right = 43.0
 offset_bottom = -47.0
 
 [connection signal="dead" from="." to="StateMachines/Die" method="_on_vulture_dead"]
+[connection signal="hurt" from="." to="StateMachines/Idle" method="_on_vulture_hurt"]
 [connection signal="player_in_range" from="." to="StateMachines/Chase" method="_on_vulture_player_in_range"]
 [connection signal="body_entered" from="Body/DamageArea" to="StateMachines/Attack" method="_on_node_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachines/Idle" method="_on_animation_player_animation_finished"]

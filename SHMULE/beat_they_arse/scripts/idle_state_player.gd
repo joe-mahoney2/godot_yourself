@@ -2,14 +2,19 @@ extends Node
 
 const STATE_NAME = "idle_state"
 
-@onready var anim_player = get_parent().get_parent().anim_player
+@onready var anim_player = $"../../AnimationPlayer"
 
 var fsm: StateMachine
 
 func enter():
-	print("Idling!")
 	# Play idle animation
-	anim_player.play("Idle")
+	#anim_player.play("Idle")
+	pass
+
+func _process(_delta):
+	# Check for inputs
+	if (true):
+		pass
 
 func exit(next_state):
 	fsm.change_to(next_state)

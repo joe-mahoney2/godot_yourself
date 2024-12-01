@@ -1,4 +1,4 @@
-[gd_scene load_steps=400 format=3 uid="uid://tk43j4d3vvhm"]
+[gd_scene load_steps=401 format=3 uid="uid://tk43j4d3vvhm"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ax62y"]
 [ext_resource type="Texture2D" uid="uid://dni1sqjhdbqw1" path="res://assets/sprites/Player/cowboy/Ghost.png" id="3_gxu54"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scripts/run_state_player.gd" id="13_ubi21"]
 [ext_resource type="Script" path="res://scripts/hurt_state_player.gd" id="15_7qcqw"]
 [ext_resource type="Script" path="res://scripts/death_state_player.gd" id="16_5sw3x"]
+[ext_resource type="Script" path="res://scripts/StateMachines.gd" id="17_6o2vc"]
 
 [sub_resource type="Animation" id="Animation_qwvmc"]
 resource_name = "Death"
@@ -5451,38 +5452,44 @@ frame = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_bqii8")
 animation = &"Run"
-frame = 3
+frame = 4
 
 [node name="LeftArm" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1k2pp")
 animation = &"Death"
+frame = 1
 
 [node name="Torso" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6r022")
 animation = &"Death"
+frame = 1
 
 [node name="RightLeg" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_kh1ot")
 animation = &"Death"
+frame = 1
 
 [node name="RightArm" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_l35d6")
 animation = &"Death"
+frame = 1
 
 [node name="Head" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_4kaef")
 animation = &"Death"
+frame = 1
 
 [node name="Hat" type="AnimatedSprite2D" parent="Body"]
 z_index = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_7mrri")
 animation = &"Death"
+frame = 1
 
 [node name="ShoulderMount" type="Node2D" parent="Body"]
 position = Vector2(13, -9)
@@ -5516,6 +5523,12 @@ script = ExtResource("16_5sw3x")
 visible = false
 position = Vector2(0, 15)
 shape = SubResource("RectangleShape2D_k0aon")
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("17_6o2vc")
+
+[node name="idle_state" type="Node2D" parent="StateMachine"]
+script = ExtResource("11_gv2qm")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

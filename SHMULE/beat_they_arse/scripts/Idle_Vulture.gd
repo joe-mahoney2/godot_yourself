@@ -55,3 +55,6 @@ func chill():
 		look_for = 1
 	anim_player.play(curr_anim)
 
+func _on_vulture_hurt():
+	if (fsm.current_state == fsm.states[STATE_NAME]):
+		exit("Chase")
