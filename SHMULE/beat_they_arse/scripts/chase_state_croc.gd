@@ -38,3 +38,6 @@ func _on_jab_range_body_entered(body):
 	# Check if state has changed because we can 
 	if (body.name == "Player" and fsm.current_state == fsm.states["chase_state"]):
 		fsm.change_to("jab_state")
+	elif (body.name == "Player" and fsm.current_state == fsm.states["hurt_state"]):
+		fsm.back()
+		fsm.change_to("jab_state")

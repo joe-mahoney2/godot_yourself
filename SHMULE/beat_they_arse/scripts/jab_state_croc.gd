@@ -46,6 +46,12 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_jab_range_body_exited(body):
 	if (body.name == "Player" and fsm.current_state == fsm.states[STATE_NAME]):
+		print("player left punch range in jab state")
+		player_in_jab_range = false
+	elif (body.name == "Player" and fsm.current_state == fsm.states["hurt_state"]):
+		print("Player left punch range in hurt state")
+		# Exit right now
+		fsm.back()
 		player_in_jab_range = false
 
 

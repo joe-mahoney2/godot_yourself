@@ -9,6 +9,7 @@ var downed = false
 var ATTACK_RANGE = 50
 var health : int
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var heart_scene = preload("res://scenes/effects/heart.tscn")
 
 signal hurt
 signal dead
@@ -43,4 +44,13 @@ func die():
 	velocity = Vector2(0,0)
 	print("i am dead")
 	downed = true
+	# Potentially spawn heart
+	if randf() < 0.25:
+		# spawn heart
+		spawn_heart()
 	emit_signal("dead")
+
+func spawn_heart():
+	var heart = heart_scene.instantiate()
+	heart.position = self.position
+	get_parent().add_child(heart)

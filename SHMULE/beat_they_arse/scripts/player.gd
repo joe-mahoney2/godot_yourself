@@ -150,6 +150,12 @@ func damage(value: int):
 		# play hurt
 		anim_tree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
+func add_health(value: int):
+	health += value
+	health = min($"/root/Global".MAX_HEALTH_PLAYER, health)
+	health_bar._set_health(health)
+	
+
 func die():
 	# set dead var
 	velocity = Vector2(0,0)

@@ -8,6 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var spawn_location : Vector2
 var health : int
 var is_dead : bool
+var heart_scene = preload("res://scenes/effects/heart.tscn")
 
 @onready var body = $Body
 @onready var body_col_shape = $CollisionShape2D
@@ -83,8 +84,16 @@ func head_straight_to(tgt_point : Vector2):
 
 func die():
 	is_dead = true
+	if randf() < 0.25:
+		# spawn heart
+		spawn_heart()
 	emit_signal("dead")
 
 func in_range_check(dist : Vector2):
 	if (abs(dist.x) < 100):
 		emit_signal("player_in_range")
+
+func spawn_heart():
+	var heart = heart_scene.instantiate()
+	heart.position = self.position
+	get_parent().add_child(heart)

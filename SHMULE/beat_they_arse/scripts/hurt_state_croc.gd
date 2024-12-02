@@ -10,6 +10,7 @@ var fsm: StateMachine
 
 func enter():
 	croc.velocity.x = croc.velocity.x / 2
+	print("Owie!")
 	anim_player.play("Hurt")
 
 func exit():
