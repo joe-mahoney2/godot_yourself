@@ -9,6 +9,7 @@ var in_air = false
 var bullets : int = 6
 
 var dust_scene = preload("res://scenes/effects/dust.tscn")
+var death_page = preload("res://scenes/ui/death.tscn")
 
 # get the gravity from the project settings to be synced with RigidBody  nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -166,7 +167,8 @@ func die():
 	print("Playing death animation")
 	anim_player.play("Death")
 	# Game is over
-	$Camera2D/DeathLabel.visible = true
+	var death_ui = death_page.instantiate()
+	camera2d.add_child(death_ui)
 
 func spawn_dust():
 	var dust = dust_scene.instantiate()

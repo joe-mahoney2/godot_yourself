@@ -4,6 +4,8 @@ extends Node2D
 @onready var blink_timer = $BlinkTimer
 @onready var delete_timer = $DeleteTimer
 
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

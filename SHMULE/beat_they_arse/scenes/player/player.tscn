@@ -5376,7 +5376,7 @@ animations = [{
 size = Vector2(34, 60)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 15
+collision_mask = 7
 script = ExtResource("1_ax62y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -5392,16 +5392,6 @@ offset_left = 27.0
 offset_top = 600.0
 offset_right = 267.0
 offset_bottom = 615.0
-
-[node name="DeathLabel" type="Label" parent="Camera2D"]
-visible = false
-offset_left = -110.0
-offset_top = -150.0
-offset_right = 111.0
-offset_bottom = -63.0
-text = "Game Over Nerd"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
@@ -5452,6 +5442,7 @@ frame = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_bqii8")
 animation = &"Run"
+frame = 5
 
 [node name="LeftArm" type="AnimatedSprite2D" parent="Body"]
 scale = Vector2(3, 3)
