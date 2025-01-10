@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://pmswdqw8caje"]
+[gd_scene load_steps=5 format=3 uid="uid://pmswdqw8caje"]
 
 [ext_resource type="Script" path="res://scripts/death_ui.gd" id="1_mrfnu"]
 [ext_resource type="FontFile" uid="uid://bew051x4er3kv" path="res://assets/Pixel-Western.ttf" id="2_svict"]
+[ext_resource type="StyleBox" uid="uid://dbwg03od4luw6" path="res://scenes/ui/death.tres" id="3_nnqfc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_btuok"]
 font = ExtResource("2_svict")
@@ -25,10 +26,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
-offset_left = 474.0
-offset_top = 291.0
-offset_right = 679.0
-offset_bottom = 360.0
+offset_left = 475.0
+offset_top = 312.0
+offset_right = 667.0
+offset_bottom = 370.0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("2_svict")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("3_nnqfc")
+theme_override_styles/hover = ExtResource("3_nnqfc")
+theme_override_styles/pressed = ExtResource("3_nnqfc")
 text = "Restart"
+flat = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

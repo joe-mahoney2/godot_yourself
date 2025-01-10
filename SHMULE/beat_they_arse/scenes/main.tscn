@@ -1,24 +1,148 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3uljxnnyvicv"]
+[gd_scene load_steps=17 format=3 uid="uid://d3uljxnnyvicv"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_h3q7k"]
+[ext_resource type="Texture2D" uid="uid://d1rmtslhb3s8y" path="res://assets/sprites/backgrounds/western/TitlePage.png" id="2_ey1aq"]
+[ext_resource type="Theme" uid="uid://dbntx7a5eak1v" path="res://assets/new_theme.tres" id="2_ikgeq"]
+[ext_resource type="Texture2D" uid="uid://blxwemsr3frt2" path="res://assets/sprites/Player/CowboyFinal-Sheet.png" id="3_1xs34"]
+[ext_resource type="FontFile" uid="uid://bew051x4er3kv" path="res://assets/Pixel-Western.ttf" id="3_myrvi"]
+[ext_resource type="Script" path="res://scripts/playerDecorative.gd" id="4_wiq4k"]
+[ext_resource type="StyleBox" uid="uid://b45hkw022rahd" path="res://scenes/ui/new_style_box_empty.tres" id="6_t3rqs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14tmd"]
+atlas = ExtResource("3_1xs34")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aeiq"]
+atlas = ExtResource("3_1xs34")
+region = Rect2(33, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7623y"]
+atlas = ExtResource("3_1xs34")
+region = Rect2(66, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d0k2"]
+atlas = ExtResource("3_1xs34")
+region = Rect2(99, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7mjd2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14tmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aeiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7623y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0d0k2")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_k6xag"]
+resource_name = "Idle"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animatedPlayer:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_2m7ik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animatedPlayer:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sfegp"]
+_data = {
+"Idle": SubResource("Animation_k6xag"),
+"RESET": SubResource("Animation_2m7ik")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_u2jyo"]
+font = ExtResource("3_myrvi")
+font_size = 48
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_h3q7k")
 
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(589, 323.5)
+scale = Vector2(3.09375, 3.03241)
+texture = ExtResource("2_ey1aq")
+
+[node name="animatedPlayer" type="AnimatedSprite2D" parent="."]
+position = Vector2(125, 575)
+scale = Vector2(3.09375, 3.13426)
+sprite_frames = SubResource("SpriteFrames_7mjd2")
+animation = &"Idle"
+script = ExtResource("4_wiq4k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="animatedPlayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_sfegp")
+}
+
 [node name="Play" type="Button" parent="."]
-offset_left = 473.0
-offset_top = 179.0
-offset_right = 664.0
-offset_bottom = 284.0
+offset_left = 493.0
+offset_top = 174.0
+offset_right = 624.0
+offset_bottom = 222.0
+theme = ExtResource("2_ikgeq")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("6_t3rqs")
+theme_override_styles/hover = ExtResource("6_t3rqs")
+theme_override_styles/pressed = ExtResource("6_t3rqs")
 text = "PLAY
 "
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 475.0
-offset_top = 315.0
-offset_right = 666.0
-offset_bottom = 420.0
+offset_left = 510.0
+offset_top = 234.0
+offset_right = 601.0
+offset_bottom = 282.0
+theme = ExtResource("2_ikgeq")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("6_t3rqs")
+theme_override_styles/hover = ExtResource("6_t3rqs")
+theme_override_styles/pressed = ExtResource("6_t3rqs")
 text = "QUIT"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 320.0
+offset_top = 125.0
+offset_right = 830.0
+offset_bottom = 166.0
+text = "Outlaw Kevin"
+label_settings = SubResource("LabelSettings_u2jyo")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

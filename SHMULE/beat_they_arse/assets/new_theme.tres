@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dbntx7a5eak1v"]
+
+[ext_resource type="FontFile" uid="uid://bew051x4er3kv" path="res://assets/Pixel-Western.ttf" id="1_k61yy"]
+
+[resource]
+default_font = ExtResource("1_k61yy")
+default_font_size = 20
